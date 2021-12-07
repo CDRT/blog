@@ -8,3 +8,6 @@ With a broad portfolio of products to support and the related content that goes 
 
 ### Enterprise Client Management Forum
 The Commercial Deployment Readiness Team maintains working SCCM and MDT lab environments so we can recreate customer issues that we receive through our [Enterprise Client Management Forum].  This forum is targeted again to those IT admins that are deploying and managing many Lenovo PCs.  This is often the quickest way to get an answer to deployment questions.  Our team monitors this forum daily and we also have some great members that offer answers and insights as well.
+
+### Lenovo CDRT Docs Site
+We now have a consolidated site for documentation of items within the CDRT scope:  [docs.lenovocdrt.com](https://docs.lenovocdrt.com/#/) This site will contain the latest content from the team and cover items such as product guides for our Lenovo tools for administrators (Lenovo System Update Suite, Commercial Vantage, Think BIOS Config Tool, etc.), deployment guides for docking stations and BIOS updates, and any future topics we develop.

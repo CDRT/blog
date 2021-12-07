@@ -1,4 +1,4 @@
-### Collecting and Storing Lenovo Warranty Information to Azure Monitor <!-- docsify-ignore -->
+### Collecting and Storing Lenovo Warranty <br> Information to Azure Monitor <!-- docsify-ignore -->
 ![](../img/2021/az_monitor_warranty/image1.jpg)
 
 *Author: Philip Jorgensen*

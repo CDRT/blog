@@ -8,3 +8,4 @@
 
 - **2020**
 -- [Introducing <br>Lenovo Odometer](2020/odometer.md)
+-- [Hardware Support Apps <br>without Microsoft Store](2020/hsa-1.md)

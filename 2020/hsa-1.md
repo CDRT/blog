@@ -1,4 +1,6 @@
 ## Introduction
+*Author: Thad Lawson*
+
 With versions of Windows 10 since 1809, Microsoft has introduced the concept of Modern Drivers.  These new drivers have a few requirements:
 * Declarative:  The driver must be INF installable with no co-installers
 * Componentized:  The driver must support the architecture of having a base driver with optional extension drivers for customizations above the base functionality

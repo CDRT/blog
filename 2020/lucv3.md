@@ -1,6 +1,6 @@
 ## Lenovo Updates Catalog v3 for SCCM
 
-*Authors: Joe Parker, Devin McDermot*
+*Authors: Joe Parker, Devin McDermott*
 
 The Lenovo Updates Catalog has been upgraded to the V3 format.  The catalog is still hosted at the same URL:
 ```

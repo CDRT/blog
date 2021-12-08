@@ -1,7 +1,7 @@
 ### Hosting a repository in an Azure file share 
-![](../img/2021/az_fs/azurefs.jpg)
-
 *Author: Philip Jorgensen*
+
+![](../img/2021/az_fs/azurefs.jpg)
 
 This option leverages the Lenovo cloud repository feature in Update Retriever.  By choosing this option, only the package XML's will be downloaded to the repository while the full content will be hosted by Lenovo. 
 

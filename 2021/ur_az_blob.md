@@ -1,7 +1,7 @@
 ### Hosting a repository in an Azure blob 
-![](../img/2021/az_blob/azureblob.png) 
-
 *Author: Philip Jorgensen*
+
+![](../img/2021/az_blob/azureblob.png) 
 
 ?>System Update v5.07.0110 and later supports Blob storage access via HTTPS
 

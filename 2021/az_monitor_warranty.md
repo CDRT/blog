@@ -1,7 +1,7 @@
 ### Collecting and Storing Lenovo Warranty <br> Information to Azure Monitor <!-- docsify-ignore -->
-![](../img/2021/az_monitor_warranty/image1.jpg)
-
 *Author: Philip Jorgensen*
+
+![](../img/2021/az_monitor_warranty/image1.jpg)
 
 A feature add (by popular demand) in Commercial Vantage is the ability to write the device's warranty information to WMI.  
 

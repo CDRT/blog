@@ -1,7 +1,7 @@
 ### ThinkShield secure wipe using Microsoft Endpoint Manager
-![](../img/2021/thinkshield_secure_wipe/thinkshield.jpg)
-
 *Author: Philip Jorgensen*
+
+![](../img/2021/thinkshield_secure_wipe/thinkshield.jpg)
 
 **OVERVIEW**
 

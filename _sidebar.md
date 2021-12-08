@@ -8,8 +8,9 @@
 -- [Configure BIOS through <br>Intune using TBCT](2021/intune_bios_settings.md)
 -- [ThinkShield secure wipe <br> with MEM](2021/thinkshield_secure_wipe.md)
 
-- **2020**
+- **2020 and earlier**
 -- [Introducing <br>Lenovo Odometer](2020/odometer.md)
 -- [Hardware Support Apps <br>without Microsoft Store](2020/hsa-1.md)
+-- [Lenovo Updates <br>Catalog v3 for SCCM](2020/lucv3.md)
 -- [BIOS to UEFI Conversion <br> with ConfigMgr](2017/bios_to_uefi.md)
 -- [Preparing TPM for <br> BitLocker Pre-provisioning](2017/tpm_pre_provision.md)

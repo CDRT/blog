@@ -37,7 +37,7 @@ You can also find this on the BIOS Update Utility page for your system, near the
 
 Back in the ConfigMgr console, create a standard package (no program).  Here's my Yoga 370 example:
 
-![](../img/2017/dynamic_bios_update/image3.jpg)
+[![](../img/2017/dynamic_bios_update/image3.jpg)](https://blog.lenovocdrt.com/img/2017/dynamic_bios_update/image3.jpg)
 
 You can name these however you want as long as you have the 1st 4 characters of the BIOS in the Name field.  Also recommended to include the version of the BIOS and for easy access to future BIOS updates, I added the URL to the Update Utility page for the system in the Comment field.  Distribute the newly created Package to your distribution points.
 

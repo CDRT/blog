@@ -9,10 +9,10 @@
 - **2020**
 -- [Introducing <br>Lenovo Odometer](2020/odometer.md)
 -- [Hardware Support Apps <br>without Microsoft Store](2020/hsa-1.md)
--- [Update Retriever and <br>Azure File Shares](2021/ur_az_fs.md)
+-- [Update Retriever and <br>Azure File Shares](2020/ur_az_fs.md)
 
 - **2019**
--- [Update Retriever and <br>Azure Blob Storage](2021/ur_az_blob.md)
+-- [Update Retriever and <br>Azure Blob Storage](2019/ur_az_blob.md)
 
 - **2017**
 -- [BIOS to UEFI Conversion <br> with ConfigMgr](2017/bios_to_uefi.md)

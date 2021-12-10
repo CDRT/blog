@@ -16,6 +16,9 @@
 - **2019**
 -- [Update Retriever and <br>Azure Blob Storage](2019/ur_az_blob.md)
 
+- **2018**
+-- [BIOS Password Reporting <br> with ConfigMgr](2018/bios_reporting.md)
+
 - **2017**
 -- [BIOS to UEFI Conversion <br> with ConfigMgr](2017/bios_to_uefi.md)
 -- [Preparing TPM for <br> BitLocker Pre-provisioning](2017/tpm_pre_provision.md)

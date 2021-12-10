@@ -1,6 +1,7 @@
 ![](../img/2020/odometer_image.png)
 
 ## Introducing Lenovo Odometer
+*Author: Joe Parker*
 
 In some previous articles we have highlighted how you can collect Lenovo Updates History from a new WMI class in the root\Lenovo namespace. See https://thinkdeploy.blogspot.com/2018/10/tracking-thininstaller-update-history.html
 

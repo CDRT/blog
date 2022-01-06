@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+	<channel>
+		<title>Think Deploy Blog</title>
+		<link>https://blog.lenovocdrt.com/</link>
+		<description>Tips, tricks, and other solutions for managing Lenovo PCs</description>
+		<language>en-us</language>
+		<copyright>Copyright 2015-2022 Lenovo</copyright>
+		<image>
+			<url>https://blog.lenovocdrt.com/img/CDRT-POS-Blue-xsmall.png</url>
+			<title>Think Deploy Blog</title>
+			<link>https://blog.lenovocdrt.com</link>
+			</image>
+		<item>
+			<title>Automatically Create Device Collections for Lenovo Products</title>
+			<description>This is a PowerShell based solution that will query the ConfigMgr database for Lenovo branded products and create a Device Collection based off the friendly name, i.e. ThinkPad T14 Gen 2.</description>
+			<pubDate>Wed, 05 Jan 2022 17:48:02 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2022/configmgr_device_collections</link>
+			</item>
+		<item>
+			<title>Collecting and Storing Lenovo Warranty Information to Azure Monitor</title>
+			<description>In this post, we’re going to walk through how Lenovo Warranty data can be collected from Intune managed devices and ingested into a Log Analytics Workspace in Azure Monitor.</description>
+			<pubDate>Wed, 08 Dec 2021 15:37:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2021/az_monitor_warranty</link>
+			</item>
+		<item>
+			<title>Configure BIOS Settings Through Intune using the Think BIOS Config Tool</title>
+			<description>This post will provide an alternate method for configuring BIOS settings using our official Think BIOS Config Tool</description>
+			<pubDate>Wed, 08 Dec 2021 14:12:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2021/intune_bios_settings</link>
+			</item>
+		<item>
+			<title>ThinkShield secure wipe using Microsoft Endpoint Manager</title>
+			<description>How to envoke ThinkShield secure wipe using Configuration Manager</description>
+			<pubDate>Wed, 08 Dec 2021 14:12:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2021/thinkshield_secure_wipe</link>
+			</item>
+		<item>
+			<title>Introducing Lenovo Deployment Assistant</title>
+			<description>Lenovo Deployment Assistant is a new offering aimed at Configuration Managers admins to help automate tasks required to implement other Lenovo utilities.</description>
+			<pubDate>Fri, 12 Nov 2021 15:46:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2021/intro_lda</link>
+			</item>
+		<item>
+			<title>Introducing Lenovo Odometer</title>
+			<description>This article show how to collect the Odometer metrics using Configuration Manager and a PowerShell script.</description>
+			<pubDate>Thu, 10 Dec 2020 13:33:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2020/odometer</link>
+			</item>
+		<item>
+			<title>Hardware Support Apps without Microsoft Store</title>
+			<description>Introduces Hardware Support Apps and how to deploy them without using the Microsoft Store.</description>
+			<pubDate>Fri, 19 Jun 2020 13:34:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2020/hsa-1</link>
+			</item>
+		<item>
+			<title>Dynamically Install Hardware Support Apps with ConfigMgr</title>
+			<description>This article is intended to provide another solution to install the recently released HSA packs for your ThinkPad in a ConfigMgr Task Sequence.</description>
+			<pubDate>Wed, 29 Jul 2020 13:27:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2020/dynamic_hsa</link>
+			</item>
+		<item>
+			<title>Hosting a repository in an Azure file share</title>
+			<description>Describes how to combine a Lenovo cloud repository from Update Retriever with Azure File Shares</description>
+			<pubDate>Mon, 04 May 2020 14:56:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2020/ur_az_fs</link>
+			</item>
+		<item>
+			<title>Lenovo Updates Catalog v3 for SCCM</title>
+			<description>Describes the changes in the latest format of the Lenovo Updates Catalog and how to use with Configuration Manager</description>
+			<pubDate>Tue, 16 Jun 2020 14:58:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2020/lucv3</link>
+			</item>
+		<item>
+			<title>Hosting a repository in an Azure blob</title>
+			<description>How to host an Update Retriever repository in an Azure Blob.</description>
+			<pubDate>Fri, 08 Nov 2019 13:27:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2019/ur_az_blob</link>
+			</item>
+		<item>
+			<title>Reporting BIOS Password States on Think Products with ConfigMgr</title>
+			<description>This article shows how to collect the Password state from Lenovo Think Products and report on it Configuration Manager.</description>
+			<pubDate>Thu, 19 Sep 2019 14:59:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2018/bios_reporting</link>
+			</item>
+		<item>
+			<title>Converting BIOS to UEFI on Think Products with ConfigMgr</title>
+			<description>This blog post will demonstrate how to accomplish this scenario using the Think BIOS Config Tool.</description>
+			<pubDate>Fri, 06 Jan 2017 13:59:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2017/bios_to_uefi</link>
+			</item>
+		<item>
+			<title>Preparing the TPM for BitLocker Pre-provisioning using ConfigMgr</title>
+			<description>Demonstrates how to ensure the TPM is ready for Bitlocker pre-provisioning.</description>
+			<pubDate>Fri, 31 Mar 2017 12:59:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2017/tpm_pre_provision</link>
+			</item>
+		<item>
+			<title>Dynamically Updating Think Product BIOS with ConfigMgr</title>
+			<description>Applying the 'Holy Grail' method to BIOS updates.</description>
+			<pubDate>Fri, 08 Sep 2017 15:59:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2017/dynamic_bios_update</link>
+			</item>
+		<!-- 
+		<item>
+			<title></title>
+			<description></description>
+			<pubDate>Sat, 01 Jan 2022 19:59:01 EST</pubDate>
+			<link></link>
+			</item>
+		-->
+		</channel>
+	</rss>

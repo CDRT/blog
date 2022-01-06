@@ -17,7 +17,7 @@ Create a temporary directory and place the HTA, .ini file, and the following sam
 
 Note: The $arg variable is critical as this holds the file and password switches.  You'll need to replace ThinkPadBiosConfig.ini to whatever you named your .ini file.  Replace secretkey to the encrypting key you specified during the capture process.
 
-```
+```powershell
 $tag = "$($env:ProgramData)\Lenovo\ThinkBiosConfig\ThinkBiosConfig.tag"
 $arg = '"file=ThinkPadBiosConfig.ini" "key=secretkey"'
 $log = '"log=%ProgramData%\Lenovo\ThinkBiosConfig\""'

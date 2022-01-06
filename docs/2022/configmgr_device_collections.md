@@ -13,7 +13,7 @@ Script can be downloaded from my [GitHub](https://github.com/philjorgensen/Confi
 
 Run in an elevated PowerShell on a system that has the ConfigMgr console installed.  This also assumes you have the necessary permissions to create Device Collections in your environment.
 
-```
+```powershell
 <#
 .SYNOPSIS
     Creates ConfigMgr Device Collections for Lenovo systems

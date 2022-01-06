@@ -83,7 +83,7 @@ You'll notice in the example, different values under the BIOS Password(s) column
 
 I'm by no means a SQL expert but below is the query used to pull this data
 
-```
+```sql
 SELECT DISTINCT
   SMS_G_System_COMPUTER_SYSTEM.Manufacturer00 AS 'Manufacturer',
   __em_COMPUTER_SYSTEM_PRODUCT0.Version00 AS 'Model',

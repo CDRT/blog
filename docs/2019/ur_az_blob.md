@@ -57,7 +57,7 @@ The results will look something like this
 
 **Method 3: PowerShell** Similar to AzCopy but instead using the **Set-AzStorageBlobContent** cmdlet.  You'll need the [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.7.0) installed first.  Below is a simple, sample script that was pieced together from the examples provided by the MS docs.
 
-```
+```powershell
 $srcPath = "C:\lenovoUpdates"
 $token = "your-sas-token"
 $containerName = 'your-container-name'

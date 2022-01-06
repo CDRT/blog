@@ -32,7 +32,7 @@ If you need to lock down access to specific vNets and/or IP ranges, you can conf
 
 ### Populating the Update Retriever repository
 Install the latest version of [Update Retriever](https://support.lenovo.com/solutions/ht037099) on a technician system.  We're going to use [cmdkey](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmdkey) to store the Azure storage account credentials.  Launch PowerShell and enter the following command (replacing the storage account name and access key):
-```
+```powershell
 Invoke-Expression -Command "cmdkey /add:<storageaccountname>.file.core.windows.net /user:Azure\<storageaccountname> /pass:<accesskey>"
 ```
 

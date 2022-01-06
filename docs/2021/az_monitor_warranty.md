@@ -17,7 +17,7 @@ Before you begin, make sure your test devices have the [latest version](https://
 
 Deploy this PowerShell script to a user/device group to get started
 
-```
+```powershell
 Get-CimInstance -Namespace root/Lenovo -ClassName Lenovo_WarrantyInformation | Select-Object `
     SerialNumber, `
     Product, `
@@ -44,7 +44,7 @@ Prereqs:
 Azure Automation account.  If you haven't created one, refer to the [MS doc](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account) on how to do this.
 Intune PowerShell SDK, which provides support for the Intune API through Graph.  This module will need to be [imported](https://docs.microsoft.com/en-us/azure/automation/shared-resources/modules#import-modules) from the PowerShell Gallery into Azure Automation before proceeding.  Here's a short script to do so:
 
-```
+```powershell
 $ResourceGroup = '<your resource group>'
 $AutomationAccount = '<your automation account>'
 
@@ -67,7 +67,7 @@ I've adjusted the [PowerShell sample](https://docs.microsoft.com/en-au/azure/azu
 
 Copy/paste the below script to your runbook
 
-```
+```powershell
 <#
 Set internal automation cmdlets for Graph authentication
 Reference: https://docs.microsoft.com/en-us/azure/automation/shared-resources/variables?tabs=azure-powershell#internal-cmdlets-to-access-variables
@@ -170,7 +170,7 @@ Let's check out the new Custom Log in our [workspace](https://portal.azure.com/#
 
 Head over to the [Azure Monitor Logs](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/logs) and run the following query to see our devices.
 
-```
+```sql
 WarrantyInformation_CL
 | order by Product_s
 | distinct Product_s, StartDate_s, EndDate_s
@@ -183,7 +183,7 @@ If you don't need to make any further changes with the Runbook, click on **Publi
 
 Another example would be if you wanted to only show devices whose Warranty ended in the year 2020, you could run this query
 
-```
+```sql
 WarrantyInformation_CL
 | distinct SerialNumber_s, Product_s, StartDate_s, EndDate_s
 | where EndDate_s contains "2020"

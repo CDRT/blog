@@ -45,7 +45,7 @@ If you don't already have a Package containing your Scripts, create another one 
 
 Referencing the Dynamic BIOS Update post, you'll need to generate an XML containing your Packages.  This XML will contain the necessary data in order to match the HSA Package to your ThinkPad.  To generate the XML, the following PowerShell commands can be used
 
-```
+```powershell
 # Connect to ConfigMgr Site 
 
 $SiteCode = $(Get-WmiObject -ComputerName "$ENV:COMPUTERNAME" -Namespace "root\SMS" -Class "SMS_ProviderLocation").SiteCode
@@ -60,7 +60,7 @@ If you open the XML, the contents should be similar to this
 
 Copy this XML to your Scripts folder.  Along with the XML, another piece to the puzzle is needed to be able to grab the correct HSA Package during the Task Sequence.  The below PowerShell script (**Get-DynamicHsaPackages.ps1**) will look at the Packages.xml, match the Name/MTM to it's corresponding HSA Package, and leverage the **OSDDownloadDownloadPackages** override variable in the Download Package Content step.  This script needs to be saved in your Scripts folder as well.
 
-```
+```powershell
 [CmdletBinding()]
 param (
 

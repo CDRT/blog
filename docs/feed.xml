@@ -11,6 +11,14 @@
 			<title>Think Deploy Blog</title>
 			<link>https://blog.lenovocdrt.com</link>
 			</image>
+		<!-- 
+		<item>
+			<title></title>
+			<description></description>
+			<pubDate>Sat, 01 Jan 2022 19:59:01 EST</pubDate>
+			<link></link>
+			</item>
+		-->
 		<item>
 			<title>Automatically Create Device Collections for Lenovo Products</title>
 			<description>This is a PowerShell based solution that will query the ConfigMgr database for Lenovo branded products and create a Device Collection based off the friendly name, i.e. ThinkPad T14 Gen 2.</description>
@@ -101,13 +109,5 @@
 			<pubDate>Fri, 08 Sep 2017 15:59:01 EST</pubDate>
 			<link>https://blog.lenovocdrt.com/#/2017/dynamic_bios_update</link>
 			</item>
-		<!-- 
-		<item>
-			<title></title>
-			<description></description>
-			<pubDate>Sat, 01 Jan 2022 19:59:01 EST</pubDate>
-			<link></link>
-			</item>
-		-->
 		</channel>
 	</rss>

@@ -1,4 +1,4 @@
-### Automatically Create Device Collections <br> for Lenovo Products
+### Automatically Create ConfigMgr Device Collections <br> for Lenovo Products
 *Author: Philip Jorgensen*
 
 This is a PowerShell based solution that will query the ConfigMgr database for Lenovo branded products and create a Device Collection based off the friendly name, i.e. **ThinkPad T14 Gen 2**.  Each device will then be moved to its respective collection.

@@ -1,4 +1,4 @@
-![](img/logo.png)
+![Commercial Deployment Readiness Team](img/logo.png)
 
 [![RSS Feed](img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 

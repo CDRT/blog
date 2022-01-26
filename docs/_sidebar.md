@@ -1,6 +1,6 @@
-![Commercial Deployment Readiness Team](img/logo.png)
+![Commercial Deployment Readiness Team](https://blog.lenovocdrt.com/img/logo.png)
 
-[![RSS Feed](img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
+[![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2022**
 -- [Automating ConfigMgr <br> Device Collections](2022/configmgr_device_collections.md)

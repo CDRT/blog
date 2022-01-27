@@ -92,6 +92,12 @@
 			<link>https://blog.lenovocdrt.com/#/2018/bios_reporting</link>
 			</item>
 		<item>
+			<title>Upgrading ThinkPad TPM Spec Using ConfigMgr</title>
+			<description>Demonstrating how to upgrade TPM 1.2 to 2.0 on ThinkPad using ConfigMgr</description>
+			<pubDate>Tue, 07 May 2019 2:52:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2019/tpm_upgrade</link>
+			</item>
+		<item>
 			<title>Converting BIOS to UEFI on Think Products with ConfigMgr</title>
 			<description>This blog post will demonstrate how to accomplish this scenario using the Think BIOS Config Tool.</description>
 			<pubDate>Fri, 06 Jan 2017 13:59:01 EST</pubDate>

@@ -24,6 +24,7 @@
 
 - **2018**
 -- [BIOS Password Reporting <br> with ConfigMgr](2018/bios_reporting.md)
+-- [ThinkCentre TPM Firmware <br> Switch Tool](2018/tc_tpm_fwswitch_tool.md)
 
 - **2017**
 -- [BIOS to UEFI Conversion <br> with ConfigMgr](2017/bios_to_uefi.md)

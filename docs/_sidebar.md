@@ -3,23 +3,24 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2022**
+-- [Update Retriever and <br> Azure Blob Storage Redux](2022/ur_az_blob_redux.md)
 -- [Automating ConfigMgr <br> Device Collections](2022/configmgr_device_collections.md)
 
 - **2021**
--- [Warranty Information and <br>Azure Monitor](2021/az_monitor_warranty.md)
--- [Introducing Lenovo <br>Deployment Assistant](2021/intro_lda.md)
--- [Configure BIOS through <br>Intune using TBCT](2021/intune_bios_settings.md)
+-- [Warranty Information and <br> Azure Monitor](2021/az_monitor_warranty.md)
+-- [Introducing Lenovo <br> Deployment Assistant](2021/intro_lda.md)
+-- [Configure BIOS through <br> Intune using TBCT](2021/intune_bios_settings.md)
 -- [ThinkShield secure wipe <br> with MEM](2021/thinkshield_secure_wipe.md)
 
 - **2020**
--- [Introducing <br>Lenovo Odometer](2020/odometer.md)
--- [Hardware Support Apps <br>without Microsoft Store](2020/hsa-1.md)
+-- [Introducing <br> Lenovo Odometer](2020/odometer.md)
+-- [Hardware Support Apps <br> without Microsoft Store](2020/hsa-1.md)
 -- [Dynamic HSA Install <br> with ConfigMgr](2020/dynamic_hsa.md)
--- [Update Retriever and <br>Azure File Shares](2020/ur_az_fs.md)
--- [Lenovo Updates <br>Catalog v3 for SCCM](2020/lucv3.md)
+-- [Update Retriever and <br> Azure File Shares](2020/ur_az_fs.md)
+-- [Lenovo Updates <br> Catalog v3 for SCCM](2020/lucv3.md)
 
 - **2019**
--- [Update Retriever and <br>Azure Blob Storage](2019/ur_az_blob.md)
+-- [Update Retriever and <br> Azure Blob Storage](2019/ur_az_blob.md)
 -- [Upgrading ThinkPad TPM <br> Spec using ConfigMgr](2019/tpm_upgrade.md)
 
 - **2018**

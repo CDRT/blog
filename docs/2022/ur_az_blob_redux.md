@@ -23,7 +23,7 @@ Once the packages are downloaded, under **Manage repository** > **Update view**,
 
 ![](../img/2022/ur_az_blob_redux/image2.jpg)
 
-With some PowerShell, we can save time by automatically altering the XML package descriptors to support a completely silent installation of Bios updates using Thin Installer. At this time, only ThinkPad is supported. The script can be found on GitHub(add link).
+With some PowerShell, we can save time by automatically altering the XML package descriptors to support a completely silent installation of Bios updates using Thin Installer. At this time, only ThinkPad is supported. The script can be found on [GitHub](https://github.com/philjorgensen/Azure/blob/main/Blob/Sync-Repositories.ps1).
 
 ```powershell
 <#

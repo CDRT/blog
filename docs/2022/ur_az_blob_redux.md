@@ -23,7 +23,7 @@ Once the packages are downloaded, under **Manage repository** > **Update view**,
 
 ![](../img/2022/ur_az_blob_redux/image2.jpg)
 
-With some PowerShell, we can save time by automatically altering the XML package descriptors to support a completely silent installation of Bios updates using Thin Installer or System Update. At this time, only ThinkPad is supported. The script can be found on GitHub(add link).
+With some PowerShell, we can save time by automatically altering the XML package descriptors to support a completely silent installation of Bios updates using Thin Installer. At this time, only ThinkPad is supported. The script can be found on GitHub(add link).
 
 ```powershell
 <#
@@ -166,4 +166,4 @@ As an example, the following Thin Installer command line will pull these package
 .\ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 3 -noicon -repository https://storageaccount.blob.core.windows.net/bios-repository -noreboot -exporttowmi
 ```
 
-?> Refer to the System Update Deployment [Guide]https://docs.lenovocdrt.com/#/su/su_dg) for Thin Installer/System Update usage
+?> Refer to the System Update Deployment [Guide]https://docs.lenovocdrt.com/#/su/su_dg) for Thin Installer usage

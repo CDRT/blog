@@ -20,6 +20,12 @@
 			</item>
 		-->
 		<item>
+			<title>Update Retriever and Azure Blob Storage Redux</title>
+			<description>Revisiting Update Retriever and Azure Blob Storage. This will focus on altering XML package descriptors to allow a completely silent installation of Bios updates.</description>
+			<pubDate>Wed, 05 Jan 2022 17:48:02 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2022/ur_az_blob_redux</link>
+			</item>
+		<item>
 			<title>Automatically Create Device Collections for Lenovo Products</title>
 			<description>This is a PowerShell based solution that will query the ConfigMgr database for Lenovo branded products and create a Device Collection based off the friendly name, i.e. ThinkPad T14 Gen 2.</description>
 			<pubDate>Wed, 05 Jan 2022 17:48:02 EST</pubDate>
@@ -27,7 +33,7 @@
 			</item>
 		<item>
 			<title>Collecting and Storing Lenovo Warranty Information to Azure Monitor</title>
-			<description>In this post, we’re going to walk through how Lenovo Warranty data can be collected from Intune managed devices and ingested into a Log Analytics Workspace in Azure Monitor.</description>
+			<description>In this post, we're going to walk through how Lenovo Warranty data can be collected from Intune managed devices and ingested into a Log Analytics Workspace in Azure Monitor.</description>
 			<pubDate>Wed, 08 Dec 2021 15:37:01 EST</pubDate>
 			<link>https://blog.lenovocdrt.com/#/2021/az_monitor_warranty</link>
 			</item>

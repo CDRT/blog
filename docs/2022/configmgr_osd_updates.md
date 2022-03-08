@@ -79,7 +79,7 @@ The below PowerShell script will be used to accomplish this
 $Entry = "AcceptTrustedPublisherCerts"
 
 try {
-    if (!(Get-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' -Name $Entry -ErrorAction SilentlyContinue)) {
+    if ($null -eq (Get-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' -Name $Entry -ErrorAction SilentlyContinue)) {
         New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' -Name $Entry -PropertyType DWord -Value 1
         Write-Output "Registry Entry: $Entry set"
         

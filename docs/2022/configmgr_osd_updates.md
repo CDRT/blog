@@ -118,10 +118,8 @@ Deploy this Task Sequence to an Unknown Lenovo device. Monitoring the **smsts.lo
 
 ![](../img/2022/configmgr_osd_updates/image7.jpg)
 
-![](../img/2022/configmgr_osd_updates/image8.jpg)
-
 A bit further down, The installation of the LUC Agent has completed successfully.
 
-![](../img/2022/configmgr_osd_updates/image9.jpg)
+![](../img/2022/configmgr_osd_updates/image8.jpg)
 
 If these steps weren't added, you would see a **0x800b0109** error in the log, which translates to "A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider." 

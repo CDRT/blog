@@ -71,30 +71,19 @@ To successfully install the LUCAgent (or any Third-Party update) in an operating
 
 However, in an operating system deployment, the device can't receive this client policy so these tasks have to be handled beforehand.
 
-The below PowerShell script will be used to accomplish this
+The below PowerShell commands will be used to accomplish this
 
 ?> Update the script to match the name of the Wsus signing certificate when you exported it.
 
 ```powershell
-$Entry = "AcceptTrustedPublisherCerts"
+# Set registry entry
+New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' -Name AcceptTrustedPublisherCerts -PropertyType DWord -Value 1
+Write-Output "Registry Entry set"
 
-try {
-    if ($null -eq (Get-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' -Name $Entry -ErrorAction SilentlyContinue)) {
-        New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' -Name $Entry -PropertyType DWord -Value 1
-        Write-Output "Registry Entry: $Entry set"
-        
-        # Import certificates into Root and Trusted Publisher store
-        Import-Certificate -FilePath .\wsus-signing-certificate.cer -CertStoreLocation 'Cert:\LocalMachine\Root'
-        Import-Certificate -FilePath .\wsus-signing-certificate.cer -CertStoreLocation 'Cert:\LocalMachine\TrustedPublisher'
-        Write-Output "Wsus Signing Certificate imported"
-        exit 0
-    }
-}
-catch {
-    $errMsg = $_.Exception.Message
-    Write-Error $errMsg
-    exit 1
-}
+# Import certificates into Root and Trusted Publisher store
+certutil.exe -addstore -f "TrustedPublisher" .\Import-WsusSigningCertificate.ps1
+certutil.exe -addstore -f "Root" .\Import-WsusSigningCertificate.ps1
+Write-Output "Wsus Signing Certificate imported"
 ```
 
 Save this script as **Import-WsusSigningCertificate.ps1** to a source location. Export the Wsus signing certificate from a workstation or your site server and save it to the same location.
@@ -129,10 +118,8 @@ Deploy this Task Sequence to an Unknown Lenovo device. Monitoring the **smsts.lo
 
 ![](../img/2022/configmgr_osd_updates/image7.jpg)
 
-![](../img/2022/configmgr_osd_updates/image8.jpg)
-
 A bit further down, The installation of the LUC Agent has completed successfully.
 
-![](../img/2022/configmgr_osd_updates/image9.jpg)
+![](../img/2022/configmgr_osd_updates/image8.jpg)
 
 If these steps weren't added, you would see a **0x800b0109** error in the log, which translates to "A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider." 

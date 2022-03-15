@@ -20,6 +20,12 @@
 			</item>
 		-->
 		<item>
+			<title>ConfigMgr OSD: Installing Lenovo Updates</title>
+			<description>Installing Updates from the Lenovo 3rd Party Catalog in a ConfigMgr Operating System Deployment</description>
+			<pubDate>Tue, 15 Mar 2022 10:00:00 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2022/configmgr_osd_updates</link>
+			</item>
+		<item>
 			<title>Update Retriever and Azure Blob Storage Redux</title>
 			<description>Revisiting Update Retriever and Azure Blob Storage. This will focus on altering XML package descriptors to allow a completely silent installation of Bios updates.</description>
 			<pubDate>Wed, 05 Jan 2022 17:48:02 EST</pubDate>

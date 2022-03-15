@@ -17,6 +17,8 @@ Early on during my testing with winget, the ultimate goal was to be able to inst
 
 After revisiting winget, I noticed **AppInstallerCli.exe** wasn't present anymore. On my test machine, the Desktop App Installer package had updated to version **1.17.10271** from version **1.16.12653**. Instead, I did see **winget.exe** in the root of the **Microsoft.DesktopAppInstaller** directory. In previous versions, this was located under **%LocalAppData%\Microsoft\WindowsApps**, where it still is but it appears Microsoft has listened to the community on wanting support for this in System context.
 
+?>Winget releases can be found at https://github.com/microsoft/winget-cli/releases
+
 Which now leads us to the purpose of this article. How can I remediate a device missing a critical application using a [Configuration Baseline](https://docs.microsoft.com/en-us/mem/configmgr/compliance/deploy-use/deploy-configuration-baselines)? What makes this even more attractive, is that I don't have to create an Application and retain the source files.
 
 I'll use Thin Installer for this demonstration.

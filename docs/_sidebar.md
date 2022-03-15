@@ -3,7 +3,7 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2022**
--- [OSD: Installing Updates](2022/configmgr_osd_updates.md)
+-- [ConfigMgr OSD: Installing <br> Lenovo Updates](2022/configmgr_osd_updates.md)
 -- [Update Retriever and <br> Azure Blob Storage Redux](2022/ur_az_blob_redux.md)
 -- [Automating ConfigMgr <br> Device Collections](2022/configmgr_device_collections.md)
 

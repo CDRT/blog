@@ -1,6 +1,8 @@
 ### Using Winget to Install Applications as Part of a <br> Configuration Manager Configuration Baseline
 *Author: Philip Jorgensen*
 
+![](../img/2022/configmgr_ci_cb_winget/winget.png)
+
 ---
 **Brief Background**
 

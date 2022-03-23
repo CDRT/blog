@@ -12,6 +12,7 @@
 -- [Warranty Information and <br> Azure Monitor](2021/az_monitor_warranty.md)
 -- [Introducing Lenovo <br> Deployment Assistant](2021/intro_lda.md)
 -- [Configure BIOS through <br> Intune using TBCT](2021/intune_bios_settings.md)
+-- [Deploying Commercial Vantage <br> with ConfigMgr](2021/cv_configmgr_deploy.md)
 -- [ThinkShield secure wipe <br> with MEM](2021/thinkshield_secure_wipe.md)
 
 - **2020**
@@ -19,6 +20,7 @@
 -- [Hardware Support Apps <br> without Microsoft Store](2020/hsa-1.md)
 -- [Dynamic HSA Install <br> with ConfigMgr](2020/dynamic_hsa.md)
 -- [Update Retriever and <br> Azure File Shares](2020/ur_az_fs.md)
+-- [Deploying Commercial Vantage <br> with Intune](2020/cv_intune_deploy.md)
 -- [Lenovo Updates <br> Catalog v3 for SCCM](2020/lucv3.md)
 
 - **2019**

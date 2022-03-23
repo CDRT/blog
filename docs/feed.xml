@@ -56,6 +56,12 @@
 			<link>https://blog.lenovocdrt.com/#/2021/intune_bios_settings</link>
 			</item>
 		<item>
+			<title>Deploying Commercial Vantage with ConfigMgr</title>
+			<description>Step by step on how to deploy Commercial Vantage with ConfigMgr</description>
+			<pubDate>Wed, 08 Dec 2021 16:12:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2021/cv_configmgr_deploy</link>
+			</item>
+		<item>
 			<title>ThinkShield secure wipe using Microsoft Endpoint Manager</title>
 			<description>How to envoke ThinkShield secure wipe using Configuration Manager</description>
 			<pubDate>Wed, 08 Dec 2021 14:12:01 EST</pubDate>
@@ -90,6 +96,12 @@
 			<description>Describes how to combine a Lenovo cloud repository from Update Retriever with Azure File Shares</description>
 			<pubDate>Mon, 04 May 2020 14:56:01 EST</pubDate>
 			<link>https://blog.lenovocdrt.com/#/2020/ur_az_fs</link>
+			</item>
+		<item>
+			<title>Deploying Commercial Vantage with Intune</title>
+			<description>Step by step on how to deploy Commercial Vantage with Intune</description>
+			<pubDate>Tue, 10 Nov 2020 10:30:00 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2020/cv_intune_deploy</link>
 			</item>
 		<item>
 			<title>Lenovo Updates Catalog v3 for SCCM</title>

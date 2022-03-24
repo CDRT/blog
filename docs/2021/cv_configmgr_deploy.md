@@ -76,8 +76,3 @@ Select the **Commercial Vantage** application and click **Distribute Content** f
 **Deploy the Apps**
 
 Create a Device Collection to deploy the **Commercial Vantage** app.  If you have a mixed environment of computer vendors, it's suggested to create a collection targeting only Lenovo Think branded products.
-
-?>Helpful Links:
-Commercial Vantage KB - https://forums.lenovo.com/t5/Lenovo-Vantage-Knowledge-Base/tkb-p/lvtkb_en
-
-?>Vantage vs System Update - https://thinkdeploy.blogspot.com/2018/11/lenovo-vantage-vs-system-update.html

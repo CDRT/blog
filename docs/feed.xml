@@ -80,6 +80,12 @@
 			<link>https://blog.lenovocdrt.com/#/2020/odometer</link>
 			</item>
 		<item>
+			<title>Autopilot + System Update = Latest Drivers</title>
+			<description>Leveraging System Update during Windows Autopilot to update drivers on a Think product</description>
+			<pubDate>Wed, 14 Oct 2020 09:15:00 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2020/ap_su</link>
+			</item>
+		<item>
 			<title>Hardware Support Apps without Microsoft Store</title>
 			<description>Introduces Hardware Support Apps and how to deploy them without using the Microsoft Store.</description>
 			<pubDate>Fri, 19 Jun 2020 13:34:01 EST</pubDate>

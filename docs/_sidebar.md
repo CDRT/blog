@@ -17,6 +17,7 @@
 
 - **2020**
 -- [Introducing <br> Lenovo Odometer](2020/odometer.md)
+-- [Autopilot + System Update](2020/ap_su.md)
 -- [Hardware Support Apps <br> without Microsoft Store](2020/hsa-1.md)
 -- [Dynamic HSA Install <br> with ConfigMgr](2020/dynamic_hsa.md)
 -- [Update Retriever and <br> Azure File Shares](2020/ur_az_fs.md)

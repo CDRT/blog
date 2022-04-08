@@ -27,6 +27,7 @@
 - **2019**
 -- [Update Retriever and <br> Azure Blob Storage](2019/ur_az_blob.md)
 -- [Upgrading ThinkPad TPM <br> Spec using ConfigMgr](2019/tpm_upgrade.md)
+-- [Deploy BIOS Updates <br> With Intune](2019/intune_bios_deploy.md)
 
 - **2018**
 -- [BIOS Password Reporting <br> with ConfigMgr](2018/bios_reporting.md)

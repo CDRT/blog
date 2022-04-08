@@ -128,6 +128,12 @@
 			<link>https://blog.lenovocdrt.com/#/2018/bios_reporting</link>
 			</item>
 		<item>
+			<title>Deploying ThinkPad BIOS Updates With Intune</title>
+			<description>Step-by-step deploying ThinkPad BIOS updates as a Win32 app.</description>
+			<pubDate>Mon, 11 Mar 2019 16:58:01 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2019/ur_az_blob</link>
+			</item>
+		<item>
 			<title>ThinkCentre TPM Firmware Switch Tool</title>
 			<description>Demonstrating how to update TPM firmware with ConfigMgr</description>
 			<pubDate>Mon, 26 March 2018 09:59:00 EST</pubDate>

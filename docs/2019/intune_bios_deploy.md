@@ -38,6 +38,27 @@ For **Requirements**, set:
 - Operating system architecture - **32-bit/64-bit**
 - Minimum operating system - **Windows 10 1607**
 
+Take it a bit further and configure an additional requirement rule to serve as a model check.
+
+**Key path**
+```cmd
+HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS
+```
+
+**Value name**
+```cmd
+SystemFamily
+```
+
+**Value**
+```cmd
+ThinkPad X380 Yoga
+```
+
+![](../img/2019/intune_bios_deploy//image4.jpg)
+
+
+
 **Detection Rules** can be handled several different ways. In this example, I'm choosing to look at the **BIOSVersion** value in the registry. The value in the screenshot below is after installing the latest BIOS update for my test system. This is what will be evaluated at the time of install, so if the client has an older BIOS installed, it should evaluate as **False** and proceed with the install.
 
 ?> This detection method assumes a newer BIOS version is being deployed to a system with an older version. If you're attempting to deploy an older BIOS version, the rule will still evaluate as false and attempt to install the older version. If for some reason you're deploying an older BIOS version, make sure the **Secure Rollback Prevention** BIOS setting is disabled.)

@@ -26,7 +26,7 @@ First, you'll need to download/extract the contents of the HSA pack to a desired
 
 In the ConfigMgr console, create a Package (No Program) and enter the following details
 - **Name** - Friendly name of the system.  For example, **ThinkPad X13 Yoga Gen 1**
-    * This can be found in the deployment [**recipe card**(https://support.lenovo.com/solutions/ht104042) for the model
+    * This can be found in the deployment [**recipe card**](https://download.lenovo.com/cdrt/ddrc/RecipeCardWeb.html) for the model
 - **Version** - This is optional, but I entered the HSA pack version, which can be found in the ReadMe
 - **Description/Comment** - This is the first 4 of the MTM.  For Example, **20SX,20SY**
     * Also found in the deployment recipe card

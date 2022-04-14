@@ -447,7 +447,7 @@ For MEM/SCCM and MDT implementations, we are providing the following guidance fo
 ### Task Sequence
 ![](../img/2020/hsa_mdt_ts1.png)
 
-![](../img/2020/hsa_mdt_ts1.png)
+![](../img/2020/hsa_mdt_ts2.png)
 
 1. In the Task Sequence, after the Apply Operating System task in the Install phase, but before the Restart Computer task in the PostInstall phase, add a Run Command Line task and give it a name.
 1. In the command line, enter the following command:

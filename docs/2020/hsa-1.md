@@ -75,7 +75,7 @@ We have created a script to read JSON manifest files provided in the HSA packs. 
 .PARAMETER EXPORT
 
     Used to list the names of all Hardware Support Applications in the 
-    subdirectories.  Returns the list of names to the Export_{Date}{Time}.log 
+    subdirectories.  Returns the list of names to the Export_{Date}{Time}.txt 
     file in the directory from which the script was executed.
 
     -LIST -EXPORT

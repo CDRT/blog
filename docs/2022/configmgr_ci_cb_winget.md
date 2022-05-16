@@ -1,5 +1,4 @@
 ---
-title: Winget and ConfigMgr Baselines
 author: Philip Jorgensen
 date: 03/16/2022
 ---

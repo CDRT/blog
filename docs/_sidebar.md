@@ -30,6 +30,7 @@
 -- [Deploy BIOS Updates <br> With Intune](2019/intune_bios_deploy.md)
 
 - **2018**
+-- [Update History with <br> Thin Installer/ConfigMgr](2018/ti_update_history_configmgr.md) 
 -- [BIOS Password Reporting <br> with ConfigMgr](2018/bios_reporting.md)
 -- [ThinkCentre TPM Firmware <br> Switch Tool](2018/tc_tpm_fwswitch_tool.md)
 

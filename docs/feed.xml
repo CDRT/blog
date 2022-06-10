@@ -122,6 +122,12 @@
 			<link>https://blog.lenovocdrt.com/#/2019/ur_az_blob</link>
 			</item>
 		<item>
+			<title>Tracking Thin Installer Update History with ConfigMgr Current Branch</title>
+			<description>Extending Hardware Inventory to collect Update History</description>
+			<pubDate>Mon, 22 Oct 2018 10:16:00 EST</pubDate>
+			<link></link>
+			</item>
+		<item>
 			<title>Reporting BIOS Password States on Think Products with ConfigMgr</title>
 			<description>This article shows how to collect the Password state from Lenovo Think Products and report on it Configuration Manager.</description>
 			<pubDate>Thu, 19 Sep 2019 14:59:01 EST</pubDate>

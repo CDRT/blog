@@ -73,21 +73,40 @@ This sample PowerShell script can be used for detection
 ?> If the Store is not blocked in your environment, Vantage will automatically update itself as new versions are released. )
 
 ```powershell
-If (Get-Service -Name ImControllerService -ErrorAction SilentlyContinue) {
-    If (Get-Service -Name LenovoVantageService -ErrorAction SilentlyContinue) {
-        # For specific Appx version
-        # If (Get-AppxPackage -AllUsers | Where-Object { $_.PackageFullName -match "LenovoSettingsforEnterprise_10.2102.10.0" }) {
+$ErrorActionPreference = 'Stop'
+
+try {
+
+    If (Get-Service -Name ImControllerService) {
+    
+    }
         
-        # For package name only    
-        If (Get-AppxPackage -AllUsers | Where-Object { $_.Name -eq "E046963F.LenovoSettingsforEnterprise" }) {
-            Write-Host "All Services and App Present"
-            Exit 0
+    If (Get-Service -Name LenovoVantageService) {
+        # Check for older version of Vantage Service that causes UAC prompt. This is due to an expired certificate.  
+        $minVersion = "3.8.23.0"
+        $path = ${env:ProgramFiles(x86)} + "\Lenovo\VantageService\*\LenovoVantageService.exe"
+        $version = (Get-ChildItem -Path $path).VersionInfo.FileVersion
+            
+        if ([version]$version -le [version]$minVersion) {
+            
+            Write-Output "Vantage Service outdated..."; Exit 1
         }
     }
+        
+    # For specific Appx version
+    # If (Get-AppxPackage -AllUsers | Where-Object { $_.PackageFullName -match "LenovoSettingsforEnterprise_10.2102.10.0" }) {
+        
+    # For package name only    
+    If (Get-AppxPackage -AllUsers | Where-Object { $_.Name -eq "E046963F.LenovoSettingsforEnterprise" }) {
+
+    }
+
+    Write-Output "All Vantage Services and Appx Present."; Exit 0
+
 }
-else {
-    Write-Host "Required Services Missing"
-    Exit 1
+catch {
+    
+    Write-Output $_.Exception.Message; Exit 1
 }
 ```
 

@@ -3,6 +3,7 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2022**
+-- [ConfigMgr Baseline to <br> Fix Qualcomm WWAN Bug](2022/configmgr_ci_cb_qualcomm.md)
 -- [Setting Asset Tags <br> with Intune](2022/intune_asset_tag.md)
 -- [Winget and Configuration <br> Items/Baselines](2022/configmgr_ci_cb_winget.md)
 -- [ConfigMgr OSD: Installing <br> Lenovo Updates](2022/configmgr_osd_updates.md)

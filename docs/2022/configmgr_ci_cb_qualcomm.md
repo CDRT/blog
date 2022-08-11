@@ -19,7 +19,7 @@ If the driver were to be upgraded by either System Update/Thin Installer/Commerc
 
 On systems that do **NOT** have the card installed, the above mentioned tools would never see the device and never update the driver.
 
-### Affected Models
+### Known Affected Models
 
 - **ThinkPad X1 Carbon Gen 9/10**
 - **ThinkPad X1 Yoga Gen 6/7**
@@ -33,6 +33,8 @@ One possible solution is to leverage a ConfigMgr Configuration Item/Baseline. Th
 
 - Check if the logs are present and delete them
 - Check if the Qualcomm Sim Service is running and to stop/disable the service
+
+[**Download the Configuration Baseline here**](https://download.lenovo.com/cdrt/blog/CI_CB-FixQualcommX55.zip)
 
 ### Script Type Settings
 
@@ -79,3 +81,9 @@ $Service = Get-Service -Name SimService
 Stop-Service -Name $Service.Name
 Set-Service -Name $Service.Name -StartupType Disabled
 ```
+
+### Deploying the Baseline
+
+When you're ready to deploy the baseline, be sure to tick the box to remediate noncompliant rules when supported.
+
+![Baseline Deploy](../img/2022/configmgr_ci_cb_qualcomm/image1.jpg)

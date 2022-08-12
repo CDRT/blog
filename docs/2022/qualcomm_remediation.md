@@ -25,7 +25,7 @@ On systems that do **NOT** have the card installed, the above mentioned tools wo
 - **ThinkPad X1 Yoga Gen 6/7**
 - **ThinkPad T14 Gen 2**
 - **ThinkPad X13 Gen 2**
-- **ThinkPad X1 Nano**
+- **ThinkPad X1 Nano Gen 1**
 
 ## Solution
 

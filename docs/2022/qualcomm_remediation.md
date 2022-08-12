@@ -34,7 +34,7 @@ One possible solution is to leverage a ConfigMgr Configuration Item/Baseline. Th
 - Check if the logs are present and delete them
 - Check if the Qualcomm Sim Service is running and to stop/disable the service
 
-[**Download the Configuration Baseline here**](https://download.lenovo.com/cdrt/blog/CI_CB-FixQualcommX55.zip)
+[**Download the Configuration Baseline here**](https://download.lenovo.com/cdrt/blog/CI_CB-FixQualcommSnapdragonX55.zip)
 
 ### Script Type Settings
 

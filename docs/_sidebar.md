@@ -3,6 +3,7 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2022**
+-- [Remediation Scripts <br> to the Rescue](2022/qualcomm_remediation.md.md)
 -- [Setting Asset Tags <br> with Intune](2022/intune_asset_tag.md)
 -- [Winget and Configuration <br> Items/Baselines](2022/configmgr_ci_cb_winget.md)
 -- [ConfigMgr OSD: Installing <br> Lenovo Updates](2022/configmgr_osd_updates.md)

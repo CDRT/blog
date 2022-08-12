@@ -31,7 +31,7 @@ On systems that do **NOT** have the card installed, the above mentioned tools wo
 
 One possible solution is to leverage a ConfigMgr Configuration Item/Baseline. The CI will include two script setting types consisting of detection/remediation scripts. These scripts will:
 
-- Check if the logs are present and delete them
+- Check if the logs are present and delete them if the WWAN card is not installed (detected by PnpId)
 - Check if the Qualcomm Sim Service is running and to stop/disable the service
 
 [**Download the Configuration Baseline here**](https://download.lenovo.com/cdrt/blog/CI_CB-FixQualcommSnapdragonX55.zip)
@@ -43,13 +43,20 @@ One possible solution is to leverage a ConfigMgr Configuration Item/Baseline. Th
 Discovery Script
 
 ```powershell
-$Path = Join-Path -Path ($env:ProgramData) -ChildPath "Qualcomm® Snapdragon™ X55 5G Modem"
-if (Test-Path -Path $Path) {
-    if (Get-ChildItem -Path $Path -Filter "log*.txt" -Recurse) {
-        return $true
+$QCD = Get-PnpDevice -InstanceID "USB\VID_0489&PID_E0B1&MI_02*"
+
+If ($Null -eq $QCD){ 
+    $Path = Join-Path -Path ($env:ProgramData) -ChildPath "Qualcomm® Snapdragon™ X55 5G Modem"
+    if (Test-Path -Path $Path) {
+        if (Get-ChildItem -Path $Path -Filter "log*.txt" -Recurse) {
+            return $true
+        }
+    }
+    else {
+        return $false
     }
 }
-else {
+else{
     return $false
 }
 ```
@@ -86,4 +93,8 @@ Set-Service -Name $Service.Name -StartupType Disabled
 
 When you're ready to deploy the baseline, be sure to tick the box to remediate noncompliant rules when supported.
 
-![Baseline Deploy](../img/2022/configmgr_ci_cb_qualcomm/image1.jpg)
+![Baseline Deploy](../img/2022/qualcomm_remediation/image1.jpg)
+
+### Monitoring
+
+In the console, navigate to the **Monitoring** workspace and select the **Deployments** node. Here, you can review the deployment status of the baseline.

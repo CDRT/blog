@@ -20,6 +20,12 @@
 			</item>
 		-->
 		<item>
+			<title>Remediation Scripts to the Rescue</title>
+			<description>Fixing Qualcomm X55 WWAN Excessive Logging with a ConfigMgr Baseline</description>
+			<pubDate>Fri, 12 Aug 2022 12:30:00 EST</pubDate>
+			<link></link>
+			</item>
+		<item>
 			<title>Using Proactive Remediations to Set Asset Tags on ThinkPad</title>
 			<description>An example scenario on how to deploy a Proactive Remediation script package to set Asset Tags on ThinkPad</description>
 			<pubDate>Wed, 15 Jun 2022 16:00:00 EST</pubDate>

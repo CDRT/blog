@@ -128,6 +128,12 @@
 			<link>https://blog.lenovocdrt.com/#/2020/lucv3</link>
 			</item>
 		<item>
+			<title>Managing System Update with Intune</title>
+			<description>Creating a Custom Configuration Profile to manage Lenovo System Update</description>
+			<pubDate>Thur, 12 Mar 2020 12:07:00 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2020/manage_su_intune</link>
+			</item>
+		<item>
 			<title>Hosting a repository in an Azure blob</title>
 			<description>How to host an Update Retriever repository in an Azure Blob.</description>
 			<pubDate>Fri, 08 Nov 2019 13:27:01 EST</pubDate>

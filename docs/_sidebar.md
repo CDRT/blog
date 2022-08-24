@@ -24,6 +24,7 @@
 -- [Dynamic HSA Install <br> with ConfigMgr](2020/dynamic_hsa.md)
 -- [Update Retriever and <br> Azure File Shares](2020/ur_az_fs.md)
 -- [Deploying Commercial Vantage <br> with Intune](2020/cv_intune_deploy.md)
+-- [Managing System Update <br> with Intune](2020/manage_su_intune.md)
 -- [Lenovo Updates <br> Catalog v3 for SCCM](2020/lucv3.md)
 
 - **2019**

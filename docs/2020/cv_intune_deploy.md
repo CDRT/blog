@@ -1,11 +1,15 @@
-### Deploying Commercial Vantage <br> with Intune   <!-- {docsify-ignore} -->
-*Author: Philip Jorgensen*
+---
+author: Philip Jorgensen
+date: 11/20/2020
+---
+
+# Deploying Commercial Vantage with Intune
 
 Download the latest version of Commercial Vantage with Deployment Guide [here](https://support.lenovo.com/solutions/hf003321)
 
-**Preparing the Win32 App**
+## Preparing the Win32 App
 
-Once the zip has been downloaded and extracted, use the Content Prep [Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to convert to an .intunewin format.  There's already a provided batch file that handles the installation of all dependencies, certs, and .msix bundle so this will be used as the setup file.  A sample command would be:
+Once the zip has been downloaded and extracted, use the Content Prep [Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to convert to an .intunewin format. There's already a provided batch file that handles the installation of all dependencies, certs, and .msix bundle so this will be used as the setup file. A sample command would be:
 
 ```cmd
 IntuneWinAppUtil.exe -c "C:\IntuneWin\LenovoCommercialVantage_10.2010.11.0_v1" -s "setup-commercial-vantage.bat" -o "C:\IntuneWin\output" -q
@@ -13,9 +17,9 @@ IntuneWinAppUtil.exe -c "C:\IntuneWin\LenovoCommercialVantage_10.2010.11.0_v1" -
 
 ![](../img/2020/cv_intune_deploy/image1.jpg)
 
-**Creating the Win32 App**
+## Creating the Win32 App
 
-Login to the [MEM admin center](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) and add a new Windows app (Win32).  Select the new App package file created above, which should be named **setup-commercial-vantage.intunewin** and click OK.
+Login to the [MEM admin center](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) and add a new Windows app (Win32). Select the new App package file created above, which should be named **setup-commercial-vantage.intunewin** and click OK.
 
 Fill out the necessary fields in the App information section and click Review + save
 
@@ -23,12 +27,14 @@ Fill out the necessary fields in the App information section and click Review + 
 
 In the Edit application section, this is where the install/uninstall commands will be specified.
 
-Install command
+- Install command
+
 ```cmd
 setup-commercial-vantage.bat
 ```
 
-Uninstall command
+- Uninstall command
+
 ```cmd
 C:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File .\uninstall_vantage_v8\uninstall_all.ps1
 ```
@@ -39,38 +45,42 @@ Set Device restart behavior to **Determine behavior based on return codes**.
 
 In the Requirements section, set the Operating system architecture to **64-bit** and Minimum operating system to **1809**
 
-Add an additional Registry type requirement rule that will only apply to Lenovo branded systems. 
+Add an additional Registry type requirement rule that will only apply to Lenovo branded systems.
 
 ![](../img/2020/cv_intune_deploy/image4.jpg)
 
-Key path
-```
+- Key path
+
+```ini
 HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS
 ```
 
-Value name
-```
+- Value name
+
+```ini
 SystemManufacturer
 ```
 
-Registry key requirement: **String comparison**
+- Registry key requirement: **String comparison**
 
-Operator: **Equals**
+- Operator: **Equals**
 
-Value
-```
+- Value
+
+```ini
 LENOVO
 ```
 
 ![](../img/2020/cv_intune_deploy/image5.jpg)
 
-For the detection rule, a custom script detection will be used.  Commercial Vantage depends on these 2 services to run
+For the detection rule, a custom script detection will be used. Commercial Vantage depends on these 2 services to run
+
 - **ImControllerService**
 - **LenovoVantageService**
 
-This sample PowerShell script can be used for detection 
+This sample PowerShell script can be used for detection
 
-?> If the Store is not blocked in your environment, Vantage will automatically update itself as new versions are released. )
+?> If the Store is not blocked in your environment, Vantage will automatically update itself as new versions are released.
 
 ```powershell
 $ErrorActionPreference = 'Stop'
@@ -112,9 +122,15 @@ catch {
 
 ![](../img/2020/cv_intune_deploy/image6.jpg)
 
-Click Review and then Save to complete the app creation and content upload to Intune.  Once the upload has finished, assign to a group.
+Click Review and then Save to complete the app creation and content upload to Intune. Once the upload has finished, assign to a group.
 
-**Results**
+## Automatically Create the Win32 App
+
+A PowerShell helper script can be used to automatically create the Win32 app using the **IntuneWin32App** [module](https://www.powershellgallery.com/packages/IntuneWin32App).
+
+Download the **New-CommercialVantageWin32.ps1** and **Detect-CommercialVantage.ps1** from my GitHub [here](https://github.com/philjorgensen/Intune/tree/main/Win32%20Apps/Commercial%20Vantage).
+
+## Results
 
 Track the installation through the **IntuneManagementExtension.log**
 

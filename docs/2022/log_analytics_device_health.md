@@ -49,7 +49,7 @@ The following policies need to be enabled in order to create the WMI namespaces 
 
 Get-LenovoDeviceStatus.ps1
 
-Workbook.json
+LenovoDeviceHealth.json
 
 ## **Log Analytics Workspace**
 

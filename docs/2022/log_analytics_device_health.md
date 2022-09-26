@@ -47,9 +47,11 @@ The following policies need to be enabled in order to create the WMI namespaces 
 
 ### Required Files
 
-Get-LenovoDeviceStatus.ps1
+**Get-LenovoDeviceStatus.ps1**
 
-LenovoDeviceHealth.json
+**LenovoDeviceHealth.json**
+
+Download both files from our GitHub [here](https://github.com/CDRT/Library/tree/master/lenovo-device-health/Log%20Analytics).
 
 ## **Log Analytics Workspace**
 

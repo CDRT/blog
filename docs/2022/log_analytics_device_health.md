@@ -11,7 +11,7 @@ This post will walk through deploying a [Proactive Remediation](https://learn.mi
 
 We can then create an [Azure Monitor Workbook](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) to report on the following data from your Lenovo devices
 
-- **Update Installation Status**
+## Update Installation Status
 
 > Lists all updates by package ID and title with their respective install statuses
 
@@ -19,7 +19,7 @@ We can then create an [Azure Monitor Workbook](https://learn.microsoft.com/azure
 
 ---
 
-- **Battery Health Status**
+## Battery Health Status
 
 > Lists all endpoints and health of their battery (Good/Bad)
 
@@ -27,7 +27,7 @@ We can then create an [Azure Monitor Workbook](https://learn.microsoft.com/azure
 
 ---
 
-- **Warranty End Date**
+## Warranty End Date
 
 > Lists the warranty end dates of all endpoints
 

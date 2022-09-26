@@ -41,9 +41,9 @@ This is all dependent on [Lenovo Commercial Vantage](https://support.lenovo.com/
 
 The following policies need to be enabled in order to create the WMI namespaces that will be inventoried, along with their respective classes
 
-    - Configure System Update
-    - Write warranty information to WMI table
-    - Write battery information to WMI table
+- Configure System Update
+- Write warranty information to WMI table
+- Write battery information to WMI table
 
 ### Required Files
 

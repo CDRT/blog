@@ -1,6 +1,6 @@
 ---
 author: Philip Jorgensen
-date: 09/26/2022
+date: 09/27/2022
 ---
 
 # Intune Reporting: Update Status, Battery Health, and Warranty Info

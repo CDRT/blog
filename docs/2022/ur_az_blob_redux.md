@@ -57,12 +57,12 @@ Created: 2-16-2022
 #>
 
 param (
-	[Parameter(Mandatory,
-		HelpMessage = "Specify the local drive or UNC path to the Update Retriever repository...")]
-	[string]$RepositoryPath,
-	[Parameter(Mandatory,
-		HelpMessage = "Specify the URL of the Blob Container to upload content to...")]
-	[string]$BlobPath
+ [Parameter(Mandatory,
+  HelpMessage = "Specify the local drive or UNC path to the Update Retriever repository...")]
+ [string]$RepositoryPath,
+ [Parameter(Mandatory,
+  HelpMessage = "Specify the URL of the Blob Container to upload content to...")]
+ [string]$BlobPath
 )
 
 # Set Azure Service Principal variables
@@ -82,23 +82,23 @@ Clear-Host
 # Check if Az module is installed
 $installedModules = Get-InstalledModule
 try {
-	Write-Host "Checking for Az Module..." -ForegroundColor Green
-	if ($installedModules.Name -notcontains "Az") {    
-    	
-		# Update Az Module if needed
-		Write-Host "Installing Az module..." -ForegroundColor Green
-		Set-PSRepository -Name PsGallery -InstallationPolicy Trusted
-		Install-Module -Name Az -Repository PSGallery -Force -AllowClobber
-		Import-Module -Name Az -ErrorAction Stop -Verbose:$false
-	}
-	else {
-		Write-Host "Importing Az Module..." -ForegroundColor Green
-		Import-Module -Name Az -ErrorAction Stop -Verbose:$false
-	}
+ Write-Host "Checking for Az Module..." -ForegroundColor Green
+ if ($installedModules.Name -notcontains "Az") {    
+     
+  # Update Az Module if needed
+  Write-Host "Installing Az module..." -ForegroundColor Green
+  Set-PSRepository -Name PsGallery -InstallationPolicy Trusted
+  Install-Module -Name Az -Repository PSGallery -Force -AllowClobber
+  Import-Module -Name Az -ErrorAction Stop -Verbose:$false
+ }
+ else {
+  Write-Host "Importing Az Module..." -ForegroundColor Green
+  Import-Module -Name Az -ErrorAction Stop -Verbose:$false
+ }
 }
 catch [System.Exception] {
-	Write-Warning -Message "Error: $($_.Exception.Message)"
-	Break
+ Write-Warning -Message "Error: $($_.Exception.Message)"
+ Break
 }
 
 # Connect to Azure
@@ -109,25 +109,25 @@ Connect-AzAccount -ServicePrincipal -SubscriptionId $subscriptionId -TenantId $t
 # Valid for 1 hour by default (3600 seconds). Increase for initial sync.
 $storageContext = (Get-AzStorageAccount -ResourceGroupName $storageAccountRG -AccountName $storageAccountName).Context
 $SasToken = New-AzStorageAccountSASToken -Context $storageContext `
-	-Service Blob, File, Table, Queue `
-	-ResourceType Service, Container, Object `
-	-Permission racwdlup `
-	-ExpiryTime(Get-Date).AddSeconds(7200)
+ -Service Blob, File, Table, Queue `
+ -ResourceType Service, Container, Object `
+ -Permission racwdlup `
+ -ExpiryTime(Get-Date).AddSeconds(7200)
 
 # Alter XML package descriptors if the Update Retriever repository is not a cloud repo
 if (!(Get-Content -Path (Join-Path -Path $RepositoryPath -ChildPath "database.xml") | Select-String -SimpleMatch 'cloud="True"')) {
-	Write-Host "Setting BIOS package XMLs for silent installation..." -ForegroundColor Green
-	Get-ChildItem -Path $RepositoryPath -Recurse -Include *.xml |
-	ForEach-Object { if (Get-Content $_ | Select-String -Pattern 'BIOS Update', 'EC Update') `
-		{
-			(Get-Content $_ | ForEach-Object { 
-				$_  -replace 'winuptp.exe -r', 'winuptp.exe -s' `
-					-replace 'Reboot type="1"', 'Reboot type="3"' `
-					-replace 'Reboot type="5"', 'Reboot type="3"' 
-			})
-			| Set-Content $_
-		}
-	}
+ Write-Host "Setting BIOS package XMLs for silent installation..." -ForegroundColor Green
+ Get-ChildItem -Path $RepositoryPath -Recurse -Include *.xml |
+ ForEach-Object { if (Get-Content $_ | Select-String -Pattern 'BIOS Update', 'EC Update') `
+  {
+   (Get-Content $_ | ForEach-Object { 
+    $_  -replace 'winuptp.exe -r', 'winuptp.exe -s' `
+     -replace 'Reboot type="1"', 'Reboot type="3"' `
+     -replace 'Reboot type="5"', 'Reboot type="3"' 
+   })
+   | Set-Content $_
+  }
+ }
 }
 
 # Download AzCopy
@@ -169,4 +169,4 @@ As an example, the following Thin Installer command line will pull these package
 .\ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 3 -noicon -repository https://storageaccount.blob.core.windows.net/bios-repository -noreboot -exporttowmi
 ```
 
-?> Refer to the System Update Deployment Guide for Thin Installer usage: https://docs.lenovocdrt.com/#/su/su_dg/su_dg
+?> Refer to the System Update Deployment Guide for Thin Installer usage: <https://docs.lenovocdrt.com/#/su/su_dg/su_dg>

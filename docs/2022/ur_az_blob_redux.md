@@ -1,19 +1,22 @@
-### Revisiting Update Retriever and Azure Blob Storage
-*Author: Philip Jorgensen*
+---
+author: Philip Jorgensen
+date: 01/05/2022
+---
+# Revisiting Update Retriever and Azure Blob Storage
 
-This is a follow up to a previous [article](https://blog.lenovocdrt.com/#/2019/ur_az_blob) that walked through hosting an on-prem Update Retriever repository in an Azure Blob Storage. 
+This is a follow up to a previous [article](https://blog.lenovocdrt.com/#/2019/ur_az_blob) that walked through hosting an on-prem Update Retriever repository in an Azure Blob Storage.
 
-If you've started leveraging cloud storage for your driver repository, this solution may be of interest to you if you're at a roadblock with how to deploy Bios updates to your endpoints. 
+If you've started leveraging cloud storage for your driver repository, this solution may be of interest to you if you're at a roadblock with how to deploy Bios updates to your endpoints.
 
-The main focus of this article is a rather hot topic: **Silently installing Bios updates**. 
+The main focus of this article is a rather hot topic: **Silently installing Bios updates**.
 
-Historically, Bios packages force a reboot and prompt the user to proceed with the update. In an enterprise, suppressing these prompts and preventing any forced reboots is extremely important. 
+Historically, Bios packages force a reboot and prompt the user to proceed with the update. In an enterprise, suppressing these prompts and preventing any forced reboots is extremely important.
 
 This solution assumes you have an on-prem Update Retriever repository and Azure Blob Storage already in place. For authentication, I'm using a [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal), which the example script below is based off of.
 
 ?> Since we have to modify the packages, make sure your Update Retriever repository is configured as a **Local** repository.
 
-Open Update Retriever, select the models you want to get updates for. 
+Open Update Retriever, select the models you want to get updates for.
 
 Filter by type, selecting **Bios**. Proceed to downloading the packages.
 
@@ -166,4 +169,4 @@ As an example, the following Thin Installer command line will pull these package
 .\ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 3 -noicon -repository https://storageaccount.blob.core.windows.net/bios-repository -noreboot -exporttowmi
 ```
 
-?> Refer to the System Update Deployment [Guide]https://docs.lenovocdrt.com/#/su/su_dg) for Thin Installer usage
+?> Refer to the System Update Deployment Guide for Thin Installer usage: https://docs.lenovocdrt.com/#/su/su_dg/su_dg

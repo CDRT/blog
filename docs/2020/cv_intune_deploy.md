@@ -83,7 +83,10 @@ This sample PowerShell script can be used for detection
 ?> If the Store is not blocked in your environment, Vantage will automatically update itself as new versions are released.
 
 ```powershell
-$ErrorActionPreference = 'Stop'
+# Change this variable to the version you're deploying
+$DeployedVantageVersion = "10.2208.22.0"
+
+$ErrorActionPreference = "Stop"
 
 try {
 
@@ -92,31 +95,41 @@ try {
     }
         
     If (Get-Service -Name LenovoVantageService) {
-        # Check for older version of Vantage Service that causes UAC prompt. This is due to an expired certificate.  
+        # Check for older of version of Vantage Service that causes UAC prompt. This is due to an expired certificate.  
         $minVersion = "3.8.23.0"
         $path = ${env:ProgramFiles(x86)} + "\Lenovo\VantageService\*\LenovoVantageService.exe"
         $version = (Get-ChildItem -Path $path).VersionInfo.FileVersion
             
         if ([version]$version -le [version]$minVersion) {
             
-            Write-Output "Vantage Service outdated..."; Exit 1
+            Write-Output "Vantage Service outdated."; exit 1
         }
     }
         
+    # Assume no version is installed
+    $InstalledVersion = $false
+    
     # For specific Appx version
-    # If (Get-AppxPackage -AllUsers | Where-Object { $_.PackageFullName -match "LenovoSettingsforEnterprise_10.2102.10.0" }) {
+    $InstalledVantageVersion = (Get-AppxPackage -Name E046963F.LenovoSettingsforEnterprise -AllUsers).Version
+
+    If ([version]$InstalledVantageVersion -ge [version]$DeployedVantageVersion) {
+        $InstalledVersion = $true
         
-    # For package name only    
-    If (Get-AppxPackage -AllUsers | Where-Object { $_.Name -eq "E046963F.LenovoSettingsforEnterprise" }) {
+        # For package name only    
+        # If (Get-AppxPackage -Name E046963F.LenovoSettingsforEnterprise -AllUsers) {
 
     }
 
-    Write-Output "All Vantage Services and Appx Present."; Exit 0
-
+    if ($InstalledVersion) {
+        Write-Output "All Vantage Services and Appx Present"; exit 0
+    }
+    else {
+        Write-Output "Commercial Vantage is outdated."; exit 1
+    }
 }
 catch {
     
-    Write-Output $_.Exception.Message; Exit 1
+    Write-Output $_.Exception.Message; exit 1
 }
 ```
 

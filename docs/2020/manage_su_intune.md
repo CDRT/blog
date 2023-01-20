@@ -32,7 +32,12 @@ In the Custom OMA-URI Settings menu, click Add and enter the following
 
 - **Name**: TVSU ADMX Ingest
 - **Description**: (Optional)
-- **OMA-URI**: ./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Lenovo/Policy/TVSU
+- **OMA-URI**:
+
+```text
+./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Lenovo/Policy/TVSU
+```
+
 - **Data Type**: String
 - **Value**: Copy the contents of the tvsu.admx into this field
 
@@ -52,10 +57,16 @@ Repeat the steps above by adding an additional configuration setting. This examp
 
 - **Name**: Admin Command Line
 - **Description**: Installs Critical and Recommended packages with a reboot type 3 (requires reboot)
-- **OMA-URI**: ./Device/Vendor/MSFT/Policy/Config/Lenovo~Policy~Cat_ThinkVantage_61~Cat_System_Update_63~Cat_UserSettings_74~Cat_General_78/Policy_Admin_CommandLine_154
+- **OMA-URI**:
+
+```text
+./Device/Vendor/MSFT/Policy/Config/Lenovo~Policy~Cat_ThinkVantage_61~Cat_System_Update_63~Cat_UserSettings_74~Cat_General_78/Policy_Admin_CommandLine_154
+```
+
 - **Data Type**: String
 - **Value**
-```syntax
+
+```string
 <enabled/>
 <data id="Policy_TextBox_Element_Admin_CommandLine_155" value="/CM -search R -action INSTALL -includerebootpackages 3 -noicon -noreboot -nolicense"/>
 ```
@@ -68,10 +79,17 @@ This example will set custom repository paths
 
 - **Name**: Repository Path
 - **Description**: Optional
-- **OMA-URI**: ./Device/Vendor/MSFT/Policy/Config/Lenovo~Policy~Cat_ThinkVantage_61~Cat_System_Update_63~Cat_UserSettings_74~Cat_General_78/Policy_Repository_Location_116
+- **OMA-URI**:
+
+```text
+./Device/Vendor/MSFT/Policy/Config/Lenovo~Policy~Cat_ThinkVantage_61~Cat_System_Update_63~Cat_UserSettings_74~Cat_General_78/Policy_Repository_Location_116
+```
+
 - **Data Type**: String
+
 - **Value**
-```syntax
+
+```string
 <enabled/>
 <data id="Policy_TextBox_Element_Repository_Location_119" value="\\CustomRepoPath"/>
 <data id="Policy_TextBox_Element_Repository_Location_120" value="\\CustomRepoPath2"/>

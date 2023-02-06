@@ -4,7 +4,7 @@
 
 ![](../img/2021/cv_configmgr_deploy/cv.jpg)
 
-?>Updated 2/2023
+?> Updated 2/2023
 
 Previously, Lenovo provided two separate apps (Lenovo Settings and Lenovo Companion) that allowed the user to change hardware settings, run diagnostic scans, and check for software and driver updates.  As of December 2017, all of the features in those two apps (discontinued) were merged into a single app [**Commercial Vantage**](https://support.lenovo.com/solutions/hf003321)
 
@@ -16,7 +16,7 @@ All required components, as well as the Group Policy Admin Template, and sample 
 
 Download/extract the contents from the zip to a source location.
 
-In the console, navigate to **Software Library > Application Management > Applications**.  Click Create Application and set the following:
+In the console, navigate to **Software Library > Application Management > Applications**. Click Create Application and set the following:
 
 - **General**: Manually specify the application information
 
@@ -26,7 +26,7 @@ In the console, navigate to **Software Library > Application Management > Applic
 
   - **Deployment Types**: Add a **Script Installer** deployment type
 
-  - **General Information**:  Enter a name for the deployment type.  
+  - **General Information**: Enter a name for the deployment type.  
 
   - **Content**: Point the content location to the directory where the Vantage source files reside.
 
@@ -46,7 +46,7 @@ In the console, navigate to **Software Library > Application Management > Applic
 
   - File or folder name: **VantageService**
 
-    ?>Note: This directory is what's created once the System Interface Foundation driver has been installed
+    ?> Note: This directory is what's created once the System Interface Foundation driver has been installed
 
     - Tick the box **This file or folder is associated with a 32-bit application on 64-bit systems**.
 

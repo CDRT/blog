@@ -67,6 +67,8 @@ In the console, navigate to **Software Library > Application Management > Applic
 - **Detection Method 2**: Select **Use a custom script to detect the presence of this deployment type**.
   - Select **PowerShell** as the script type. Enter the following code into the script contents field:
 
+The script can also be downloaded from my [GitHub](https://github.com/philjorgensen/ConfigMgr/blob/main/Applications/Detect-CommercialVantage.ps1)
+
 ```powershell
 $ErrorActionPreference = "SilentlyContinue"
 

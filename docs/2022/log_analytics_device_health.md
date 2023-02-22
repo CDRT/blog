@@ -11,6 +11,8 @@ This post will walk through deploying a [Proactive Remediation](https://learn.mi
 
 We can then create an [Azure Monitor Workbook](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) to report on the following data from your Lenovo devices
 
+!> This solution is not supported on ThinkBook
+
 ## Update Installation Status
 
 > Lists all updates by package ID and title with their respective install statuses

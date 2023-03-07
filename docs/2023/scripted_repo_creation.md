@@ -47,20 +47,46 @@ catch {
 PowerShell script **Get-LnvUpdatesRepo.ps1** will download current updates from Lenovo's servers and store on the device. Parameters are supplied to specify the repository path, package types and reboot types to download:
 
 ```cmd
--RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository' -PackageTypes '1,2,3' -RebootTypes '0,3,5' -RT5toRT3
+-RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository' -PackageTypes '1,2,3,4' -RebootTypes '0,3,5' -RT5toRT3
 ```
 
 ![Get Lenovo Updates](../img/2023/scripted_repo_creation/image5.png)
 
 ?> The **All Updates** group contains the necessary parameters and Thin Installer command line to include Reboot Type 5 packages (BIOS/Firmware). The **Drivers** group will only download Reboot Type 3 packages (Drivers), and is disabled by default.
 
-Once all content is downloaded to the device, 2 passes of Thin Installer (with a reboot in between) installs all updates to ensure the device is current.
+Once all content is downloaded to the device, 3 passes of Thin Installer (with a reboot in between) installs all updates to ensure the device is current.
 
-```cmd
-ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 1,2,3 -noicon -noreboot -exporttowmi
-```
+### First Pass
 
 ![Run Thin Installer](../img/2023/scripted_repo_creation/image6.png)
+
+If a BIOS update is applicable, this package gets installed first using this Thin Installer command line
+
+```cmd
+ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 3 -noicon -noreboot -exporttowmi
+```
+
+### Second Pass
+
+![Run Thin Installer](../img/2023/scripted_repo_creation/image7.png)
+
+Only drivers and apps are filtered for installation using this command line
+
+```cmd
+ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 1,2 -noicon -noreboot -exporttowmi
+```
+
+### Final Pass
+
+![Run Thin Installer](../img/2023/scripted_repo_creation/image8.png)
+
+Firmware packages, such as Intel ME Firmware, are installed in the final pass using this command line
+
+```cmd
+ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 2,4 -noicon -noreboot -exporttowmi
+```
+
+***NOTE:*** In some cases, typically with Thunderbolt, there may be a requirement that the latest driver needs to be installed *BEFORE* the firmware can be updated. This pass will include drivers and firmware to only be installed.
 
 ### Summary
 

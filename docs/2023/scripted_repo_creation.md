@@ -11,7 +11,7 @@ There are various scenarios where one might want to quickly generate a local rep
 
 The script, **Get-LnvUpdatesRepo.ps1**, can be found in the CDRT Library repository on GitHub [here](https://github.com/CDRT/Library).
 
-The child task sequence can be downloaded [here](https://download.lenovo.com/cdrt/GetLenovoUpdates.zip).
+The child task sequence can be downloaded [here](https://download.lenovo.com/cdrt/eval/GetLenovoUpdates.zip).
 
 ## Scenario 1
 

@@ -47,7 +47,7 @@ catch {
 PowerShell script **Get-LnvUpdatesRepo.ps1** will download current updates from Lenovo's servers and store on the device. Parameters are supplied to specify the repository path, package types and reboot types to download:
 
 ```cmd
--RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository' -PackageTypes '1,2,3,4' -RebootTypes '0,3,5' -RT5toRT3
+-RepositoryPath 'C:\ProgramData\Lenovo\ThinInstaller\Repository' -PackageTypes '1,2,3,4' -RebootTypes '0,3,5' -RT5toRT3
 ```
 
 ![Get Lenovo Updates](../img/2023/scripted_repo_creation/image5.png)
@@ -63,7 +63,7 @@ Once all content is downloaded to the device, 3 passes of Thin Installer (with a
 If a BIOS update is applicable, this package gets installed first using this Thin Installer command line
 
 ```cmd
-ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 3 -noicon -noreboot -exporttowmi
+ThinInstaller.exe /CM -repository "C:\ProgramData\Lenovo\ThinInstaller\Repository" -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 3 -debug -noicon -noreboot -exporttowmi
 ```
 
 ### Second Pass
@@ -73,7 +73,7 @@ ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -pack
 Only drivers and apps are filtered for installation using this command line
 
 ```cmd
-ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 1,2 -noicon -noreboot -exporttowmi
+ThinInstaller.exe /CM "C:\ProgramData\Lenovo\ThinInstaller\Repository" -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 1,2 -debug -noicon -noreboot -exporttowmi
 ```
 
 ### Final Pass
@@ -83,7 +83,7 @@ ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -pack
 Firmware packages, such as Intel ME Firmware, are installed in the final pass using this command line
 
 ```cmd
-ThinInstaller.exe /CM -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 2,4 -noicon -noreboot -exporttowmi
+ThinInstaller.exe /CM "C:\ProgramData\Lenovo\ThinInstaller\Repository" -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 2,4 -debug -noicon -noreboot -exporttowmi
 ```
 
 ***NOTE:*** In some cases, typically with Thunderbolt, there may be a requirement that the latest driver needs to be installed *BEFORE* the firmware can be updated. This pass will include drivers and firmware to only be installed.

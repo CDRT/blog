@@ -20,6 +20,12 @@
 			</item>
 		-->
 		<item>
+			<title>Creating Local Repository Using PowerShell</title>
+			<description>Create local repositories of updates using PowerShell that can be used by Thin Installer</description>
+			<pubDate>Mon, 13 Mar 2023 11:37:00 EST</pubDate>
+			<link></link>
+			</item>
+		<item>
 			<title>Graph API and Intune Device Notes</title>
 			<description>Adding Model Friendly Name to an Intune Device Note using Graph API</description>
 			<pubDate>Tue, 7 Feb 2023 16:00:00 EST</pubDate>

@@ -8,9 +8,9 @@ date: 2023/3/13
 ---
 ![PowerShell](../img/2023/scripted_repo_creation/ps_icon.png)
 
-There are various scenarios where one might want to quickly generate a local repository of Lenovo updates that can be consumed by Thin Installer or System Update in a scripted manner. This article will describe a PowerShell script that can be leveraged to create a repository for a specified machine type and OS. A couple of scenarios where this script might be used will also be described.
+There are various scenarios where one might want to quickly generate a local repository of Lenovo updates that can be consumed by Thin Installer or System Update in a scripted manner. This article will describe a PowerShell script that can be leveraged to create a repository for a specified machine type and OS. A scenario where this script might be used will also be described.
 
-The script, **Get-LnvUpdatesRepo.ps1**, can be found in the CDRT Library repository on GitHub [here](https://github.com/CDRT/Library).
+The script, **Get-LnvUpdatesRepo.ps1**, can be found in the CDRT Library repository on GitHub [here](https://github.com/CDRT/Library). The parameters and switches used by the script are documented at the beginning of the script.
 
 The child task sequence described in the first scenario can be downloaded [here](https://download.lenovo.com/cdrt/eval/GetLenovoUpdates.zip).
 

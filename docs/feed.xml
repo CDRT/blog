@@ -20,6 +20,12 @@
 			</item>
 		-->
 		<item>
+			<title>Updating Thin Installer With Proactive Remediations</title>
+			<description>Updating Thin Installer with Intune Proactive Remediations</description>
+			<pubDate>Wed, 12 April 2023 14:30:00 EST</pubDate>
+			<link></link>
+			</item>
+		<item>
 			<title>Creating Local Repository Using PowerShell</title>
 			<description>Create local repositories of updates using PowerShell that can be used by Thin Installer</description>
 			<pubDate>Mon, 13 Mar 2023 11:37:00 EST</pubDate>

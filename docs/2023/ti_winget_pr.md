@@ -31,7 +31,7 @@ Nope. Can't upgrade if it's not there. So how can this tool be kept current with
 
 We'll use a Proactive Remediation script package to compare the version of Thin Installer on the endpoint and what's available in the winget repository.
 
-While the winget tool will be used to perform the upgrade, I found the [**PSWinget** Module](https://www.powershellgallery.com/packages/PSWinGet/1.0.0.4) handles the version comparisons much easier than manipulating the output from the winget tool itself. For my testing and expected end results, this is what I stuck with. The detection/remediation scripts can be found on my GitHub.
+While the winget tool will be used to perform the upgrade, I found the [**PSWinget** Module](https://www.powershellgallery.com/packages/PSWinGet/1.0.0.4) handles the version comparisons much easier than manipulating the output from the winget tool itself. For my testing and expected end results, this is what I stuck with. The detection/remediation scripts can be found on my [GitHub](https://github.com/philjorgensen/Intune/tree/main/Proactive%20Remediations/Apps).
 
 ?> This solution will install a PowerShell module on the endpoint
 

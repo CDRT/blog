@@ -3,6 +3,7 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2023**
+-- [Updating Thin Installer with <br> Proactive Remediations](2023/ti_winget_pr.md)
 -- [Create Local Repository<br>Using PowerShell](2023/scripted_repo_creation.md)
 -- [Graph API: Intune <br> Device Notes](2023/intune_device_notes.md)
 

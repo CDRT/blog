@@ -75,7 +75,7 @@ LENOVO
 
 For the detection rule, a custom script detection will be used. Commercial Vantage depends on these 2 services to run
 
-- **ImControllerService**
+- **ImControllerService** (Not required for ARM-based devices)
 - **LenovoVantageService**
 
 This sample PowerShell script can be used for detection

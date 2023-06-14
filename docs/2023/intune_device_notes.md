@@ -13,7 +13,7 @@ As of today, there's still a limitation within the Intune portal to easily find 
 
 I'm sure there's a small group of people, if any, that have memorized what every MTM translates to for its respective friendly name.
 
-To make this a bit easier, and with the help of Damien Van Robaeys' [blog post](https://www.systanddeploy.com/2023/01/get-list-uptodate-of-all-lenovo-models.html), we can use the Graph API to populate the device notes property of an Intune device by matching the **Model** (aka MTM) to its friendly name stored in this up-to-date [list](https://download.lenovo.com/bsco/schemas/list.conf.txt) used by our BIOS Simulator [tool](https://download.lenovo.com/bsco/index.html).
+To make this a bit easier, and with the help of Damien Van Robaeys' [blog post](https://www.systanddeploy.com/2023/01/get-list-uptodate-of-all-lenovo-models.html), we can use the Graph API to populate the device notes property of an Intune device by matching the **Model** (aka MTM) to its friendly name.
 
 The below code can be used to accomplish this. If there's currently a note set for a device, the friendly name will be appended on the next line of the note. You can also download from my GitHub [here](https://github.com/philjorgensen/Graph/blob/main/Set-DeviceNoteFriendlyName.ps1).
 

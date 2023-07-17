@@ -7,7 +7,7 @@ In some previous articles we have highlighted how you can collect Lenovo Updates
 
 We are now adding a new class under this namespace for the new "Odometer" feature found in the latest ThinkPads that were recently launched.  This feature keeps track of several metrics that can provide an indication of how a system has been used.  The metrics collected are:
 * CPU Uptime - amount of time CPU has been active (in S0 state), counted in hours
-* Shock events - based on detections from accelerometer where a delta reading of 1.75G(1.75m/s2) is detected
+* Shock events - based on detections from accelerometer where a delta reading of 1.75G(1.75m/s^2^) is detected
 * Thermal events - registered high-temp conditions where CPU was throttled
 * Battery cycles - number of charge cycles performed on battery
 * SSD Read/Writes - number of block reads and writes on one or more internal SSDs

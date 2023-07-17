@@ -57,7 +57,7 @@ A public key can be generated from the private key with the following command:
 openssl rsa -in privateKey.pem -pubout -out publicKey.pem
 ```
 
-Convert to .DER:
+Convert to .DER (optional):
 
 ```PowerShell
 openssl rsa -pubin -in publicKey.pem -inform PEM -out publicKey.der -outform DER
@@ -127,7 +127,7 @@ This will generate a text file for you containing the signed command.
 On the test machine where the certificate has been applied and the LnvBiosCerts module has been installed, run the following command to apply the signed command which can be copied from the text file created in the previous step:
 
 ```PowerShell
-Submit-LenovoBiosChange -Command “<text from text file>”
+Submit-LenovoBiosChange -Command “(text from text file)”
 ```
 
 ![Apply signed command](..\img\2023\cert_based_bios_authentication\applycommand.png)
@@ -136,5 +136,28 @@ Restart the system for the setting change to take effect.
 
 ## Going Further
 
-There are several other functions covered by the Lenovo BIOS Cert Tool interface.
+The Lenovo BIOS Cert Tool provides an easy to use graphical interface to work with the There are several other functions covered by the Lenovo BIOS Cert Tool interface.
 
+### Working with Think BIOS Config Tool
+
+The Think BIOS Config Tool provides the ability to list all the available settings and values on a system. The settings can be configured as desired and an INI file generated with changed settings. The Lenovo BIOS Certificate Tool can convert one of these INI files into a text file containing the signed WMI commands to apply the settings.
+
+![Convert Config File Window](..\img\2023\cert_based_bios_authentication\convertconfigfilewindow.png)
+
+The generated file can be used on the ***Apply Signed Commands*** page of the Lenovo BIOS Certificate Tool.
+
+![Apply Signed Commands Window](..\img\2023\cert_based_bios_authentication\applysignedcommandwindow.png)
+
+### Unlocking System Secured with Certificate
+
+When a system is secured with a certificate, you cannot access BIOS Setup directly on the machine using a Supervisor Password. Therefore, there is a different process to unlock a machine to access BIOS Setup.
+
+1. Technician boots the system pressing F1 to enter BIOS Setup.
+1. Insert a USB key to save a BIOS Unlock File to
+1. Click "Generate Unlock Code"
+1. Send BIOS Unlock File to administrator
+1. Administrator uses Lenovo BIOS Cert Tool to generate Unlock Code by specifiying Private Key File and Unlock File.
+1. Administrator sends Unlock Code to Technician
+1. Technician enters Unlock Code and continues to BIOS Setup
+
+![Unlock BIOS Window](..\img\2023\cert_based_bios_authentication\unlockbioswindow.png)

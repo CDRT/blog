@@ -6,11 +6,11 @@
 In some previous articles we have highlighted how you can collect Lenovo Updates History from a new WMI class in the root\Lenovo namespace. See https://thinkdeploy.blogspot.com/2018/10/tracking-thininstaller-update-history.html
 
 We are now adding a new class under this namespace for the new "Odometer" feature found in the latest ThinkPads that were recently launched.  This feature keeps track of several metrics that can provide an indication of how a system has been used.  The metrics collected are:
-* CPU Uptime - amount of time CPU has been active in hours
-* Shock events - based on detections from accelerometer
+* CPU Uptime - amount of time CPU has been active (in S0 state), counted in hours
+* Shock events - based on detections from accelerometer where a delta reading of 1.75G(1.75m/s2) is detected
 * Thermal events - registered high-temp conditions where CPU was throttled
 * Battery cycles - number of charge cycles performed on battery
-* SSD Read/Writes - number of reads and writes on one or more internal SSDs
+* SSD Read/Writes - number of block reads and writes on one or more internal SSDs
 
 These counters are maintained by the Embedded Controller and the current values are exposed each time the system boots using SMBIOS Table data. In order to have this data stored in a meaningful way so it can be inventoried and collected by MEM Configuration Manager, we have created a PowerShell script (odometer.ps1, available from download link below) that can be implemented as either a scheduled task or used on demand to populate the Lenovo_Odometer class in WMI. 
 

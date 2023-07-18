@@ -19,7 +19,7 @@ To leverage this capability, a new set of WMI methods were introduced as part of
 1. Call the new method to set the setting on the target device
 1. Repeat steps 3 & 4 as needed
 
-To make the process easier, we have create a LnvBiosCerts PowerShell module and the Lenovo BIOS Cert Tool (LnBiosCertsInterface.ps1) which provides a GUI interface for working with these functions. The current version of this package can be downloaded from [here](https://download.lenovo.com/cdrt/tools/lnvbioscerts-1.0.1.0.zip).
+To make the process easier, we have create a LnvBiosCerts PowerShell module and the Lenovo BIOS Cert Tool (LnvBiosCertsInterface.ps1) which provides a GUI interface for working with these functions. The current version of this package can be downloaded from [here](https://download.lenovo.com/cdrt/tools/lnvbioscerts-1.0.1.0.zip).
 
 ## Getting Started
 
@@ -113,7 +113,7 @@ On the administrator device which has the private key, generate a signed command
 The signed command can also be generated from the PowerShell terminal by running the following command in the folder where the private key exists:
 
 ```PowerShell
-Get-LenovoSignedWmiCommand -Method SetBiosSetting -SettingName WakeOnLANDock -SettingValue Disable -KeyFile .\privateKey.pem | Out-File .\setting.txt
+Get-LnvSignedWmiCommand -Method SetBiosSetting -SettingName WakeOnLANDock -SettingValue Disable -KeyFile .\privateKey.pem | Out-File .\setting.txt
 ```
 
 This will generate a text file for you containing the signed command.
@@ -127,7 +127,7 @@ This will generate a text file for you containing the signed command.
 On the test machine where the certificate has been applied and the LnvBiosCerts module has been installed, run the following command to apply the signed command which can be copied from the text file created in the previous step:
 
 ```PowerShell
-Submit-LenovoBiosChange -Command “(text from text file)”
+Submit-LnvBiosChange -Command “(text from text file)”
 ```
 
 ![Apply signed command](..\img\2023\cert_based_bios_authentication\applycommand.png)

@@ -161,3 +161,19 @@ When a system is secured with a certificate, you cannot access BIOS Setup direct
 1. Technician enters Unlock Code and continues to BIOS Setup
 
 ![Unlock BIOS Window](..\img\2023\cert_based_bios_authentication\unlockbioswindow.png)
+
+## Final Notes
+
+### Clearing certificate
+
+If you are clearing the certificate from multiple machines, it makes more sense to change the certificate to a temporary password instead of just removing the certificate. Generating a **ClearBiosCertificate** command requires the machine serial number which means there is a unique command for each machine.
+
+**ChangeBiosCertificateToPassword** would be a general command for all machines with that certificate which will replace the certificate with a password you specify. This will leave the devices in a secure, managable state also.
+
+### Installing Module to auto load
+
+By placing the **LnvBiosCerts** folder in the **%Program Files%\WindowsPowershell\Modules** folder, the module will auto load when a PowerShell window is started.
+
+### Limitations
+
+The **SetFunctionRequest** method has a limitation regarding the ***ResetSystemToFactoryDefaults*** BIOS function. The method will not be able to call this function with a certificate installed on the machine.

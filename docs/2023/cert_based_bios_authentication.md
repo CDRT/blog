@@ -19,7 +19,7 @@ To leverage this capability, a new set of WMI methods were introduced as part of
 1. Call the new method to set the setting on the target device
 1. Repeat steps 3 & 4 as needed
 
-To make the process easier, we have created a LnvBiosCerts PowerShell module and the Lenovo BIOS Cert Tool (LnvBiosCertsInterface.ps1) which provides a GUI interface for working with these functions. The current version of this package can be downloaded from [here](https://download.lenovo.com/cdrt/tools/lnvbioscerts-1.0.1.0.zip).
+To make the process easier, we have created a LnvBiosCerts PowerShell module and the Lenovo BIOS Cert Tool (LnvBiosCertsInterface.ps1) which provides a GUI interface for working with these functions. The current version of this package can be downloaded from [here (LnvBiosCerts_1.0.2.zip)](https://download.lenovo.com/cdrt/tools/LnvBiosCerts_1.0.2.zip).
 
 ## Getting Started
 
@@ -87,7 +87,13 @@ The first location is preferable as it allows any user or admin process on the m
 
 ![PowerShell Modules Folder](..\img\2023\cert_based_bios_authentication\screen1.png)
 
-Open a new Administrator PowerShell terminal. This ensures the module just copied to this system will be loaded. Run the following command in the folder where the **biosCert.pem** file is located to provision the certificate to the system:
+Open a new Administrator PowerShell terminal. This ensures the module just copied to this system will be loaded. If, however, the commands below are not recognized you may need to explicitly import the module with this command:
+
+```PowerShell
+Import-Module 'LnvBiosCerts' -force
+```
+
+Run the following command in the folder where the **biosCert.pem** file is located to provision the certificate to the system:
 
 ```PowerShell
 Set-LnvBiosCertificate -Certfile .\biosCert.pem -Password pass1word

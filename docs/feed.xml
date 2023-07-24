@@ -20,6 +20,12 @@
 			</item>
 		-->
 		<item>
+			<title>Certifice-based BIOS Authentication</title>
+			<description>How to leverage certificates instead of passwords with Lenovo WMI BIOS interface.</description>
+			<pubDate>Mon, 24 July 2023 16:13:00 EST</pubDate>
+			<link></link>
+			</item>
+		<item>
 			<title>Updating Thin Installer With Proactive Remediations</title>
 			<description>Updating Thin Installer with Intune Proactive Remediations</description>
 			<pubDate>Wed, 12 April 2023 14:30:00 EST</pubDate>

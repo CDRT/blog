@@ -1,6 +1,6 @@
 ---
 author: Joe Parker & Devin McDermott <br>
-date: 2023/6/25
+date: 2023/7/24
 ---
 
 # Certificate-based BIOS Authentication

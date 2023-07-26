@@ -20,6 +20,12 @@
 			</item>
 		-->
 		<item>
+			<title>Updating Intel ME Firmware with Intune</title>
+			<description>Deploying Intel ME firmware updates as Win32 apps with Intune</description>
+			<pubDate>Wed, 26 July 2023 13:00:00 EST</pubDate>
+			<link></link>
+			</item>
+		<item>
 			<title>Certifice-based BIOS Authentication</title>
 			<description>How to leverage certificates instead of passwords with Lenovo WMI BIOS interface.</description>
 			<pubDate>Mon, 24 July 2023 16:13:00 EST</pubDate>

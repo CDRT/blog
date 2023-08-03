@@ -23,7 +23,7 @@
 -- [Introducing Lenovo <br> Deployment Assistant](2021/intro_lda.md)
 -- [Configure BIOS through <br> Intune using TBCT](2021/intune_bios_settings.md)
 -- [Deploying Commercial Vantage <br> with ConfigMgr](2021/cv_configmgr_deploy.md)
--- [ThinkShield secure wipe <br> with MEM](2021/thinkshield_secure_wipe.md)
+-- [ThinkShield secure wipe <br> and Microsoft Intune](2021/thinkshield_secure_wipe.md)
 
 - **2020**
 -- [Introducing <br> Lenovo Odometer](2020/odometer.md)

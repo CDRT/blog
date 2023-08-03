@@ -3,9 +3,9 @@ author: Philip Jorgensen
 date: 12/08/2021
 ---
 
-# ThinkShield secure wipe using Microsoft Endpoint Manager
+# ![Logo](../img/2021/thinkshield_secure_wipe/thinkshield.jpg)
 
-![](../img/2021/thinkshield_secure_wipe/thinkshield.jpg)
+Updated 2023/8/3
 
 ## Overview
 
@@ -17,7 +17,7 @@ Secure wipe can be executed locally by BIOS from the application menu of the Sta
 
 ## Supported Systems
 
-### All Comet Lake (2020) ThinkPad
+### All Comet Lake (2020) and later ThinkPad
 
 ### ThinkCentre (Awaiting Confirmation)
 
@@ -49,25 +49,29 @@ Save as **Invoke-ThinkShieldSecureWipe.ps1**
 
 ## Scenarios
 
-**EXAMPLE SCENARIO 1a** - Deploy from MEMCM using Run Scripts
+The following examples will demonstrate how to invoke the ThinkShield secure wipe function with Microsoft Configuration Manager and Intune service
 
-Navigate to Software Library > Scripts > Create Script and either import Invoke-ThinkShieldSecureWipe.ps1 or copy the contents into the script editor field
+### Configuration Manager
 
-![](../img/2021/thinkshield_secure_wipe/image1.jpg)
+#### SCENARIO 1a - Deploying using Run Scripts
+
+Navigate to Software Library > Scripts > Create Script and either import **Invoke-ThinkShieldSecureWipe.ps1** or copy the contents into the script editor field
+
+![CreateScript](../img/2021/thinkshield_secure_wipe/image1.jpg)
 
 Specify the **EraseMethod**, **PasswordType**, and **Password** parameters. Details for each parameter is explained in the script header.
 
-![](../img/2021/thinkshield_secure_wipe/image2.jpg)
+![ScriptParameters](../img/2021/thinkshield_secure_wipe/image2.jpg)
 
 Complete the **Create Script** wizard and Approve it
 
-![](../img/2021/thinkshield_secure_wipe/image3.jpg)
+![WizardCompletion](../img/2021/thinkshield_secure_wipe/image3.jpg)
 
 Deploy to a single system or collection of systems. If successful, you should see a message stating the secure wipe succeeded and that the system needs to reboot to finish.
 
-![](../img/2021/thinkshield_secure_wipe/image4.jpg)
+![Image4](../img/2021/thinkshield_secure_wipe/image4.jpg)
 
-**EXAMPLE SCENARIO 1b** - Deploy from MEMCM as a Task Sequence
+#### SCENARIO 1b - Deploying as a Task Sequence
 
 Create a new **Custom Task Sequence**. Edit the Task Sequence and add a **Run PowerShell Script** step. Tick the radio button **Enter a PowerShell script** and click **Edit Script...**
 
@@ -75,19 +79,19 @@ Browse to **Invoke-ThinkShieldSecureWipe.ps1** or copy the contents into the scr
 
 In the **Parameters** field, enter the required parameters.
 
-![](../img/2021/thinkshield_secure_wipe/image5.jpg)
+![Image5](../img/2021/thinkshield_secure_wipe/image5.jpg)
 
 Add a **Restart Computer** step to transition the system to secure wipe. In my lab, I deployed as an available Task Sequence and customized the notification texts.
 
-![](../img/2021/thinkshield_secure_wipe/image6.jpg)
+![Image6](../img/2021/thinkshield_secure_wipe/image6.jpg)
 
-**EXAMPLE SCENARIO 2** - Deploy from Intune
+### Intune
 
 Package the **Invoke-ThinkShieldSecureWipe.ps1** as a Win32 app using the Microsoft Win32 Content Prep Tool.
 
 ![](../img/2021/thinkshield_secure_wipe/image7.jpg)
 
-Log into the MEM [admin center](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) and add a new **Win32 app**. Browse to the **Invoke-ThinkShieldSecureWipe.intunewin** file and add it for upload.
+Log into the Intune [admin center](https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/~/windowsApps) and add a new **Win32 app**. Browse to the **Invoke-ThinkShieldSecureWipe.intunewin** file and add it for upload.
 
 Specify App Information such as a **Name**, **Description**, and **Publisher**
 
@@ -113,7 +117,7 @@ cmd.exe /c
 
 Set the OS architecture to **64-bit** and Minimum OS to **Windows 10 1607**
 
-Add an additional requirement rule to check the system is in fact a Lenovo system.
+Add an additional requirement rule to check the system is Lenovo.
 
 ![](../img/2021/thinkshield_secure_wipe/image10.jpg)
 
@@ -138,6 +142,6 @@ Deploy the app to a group. In my testing, I deployed as available and installed 
 
 ![](../img/2021/thinkshield_secure_wipe/image12.jpg)
 
-Once a system has restarted, the final result will look like this. The system will automatically shut down.
+Once the system has restarted, secure wipe will trigger.
 
 ![](../img/2021/thinkshield_secure_wipe/image13.jpg)

@@ -17,9 +17,7 @@ Secure wipe can be executed locally by BIOS from the application menu of the Sta
 
 ## Supported Systems
 
-### All Comet Lake (2020) and later ThinkPad
-
-### ThinkCentre (Awaiting Confirmation)
+### All 2020 and later ThinkPad/ThinkCentre
 
 ### ThinkStation
 

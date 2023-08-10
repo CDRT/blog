@@ -3,6 +3,7 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2023**
+-- [Enabling Logging for <br> Commercial Vantage](2023/cv_su_logging.md)
 -- [Deploy Intel ME Firmware <br> Updates with Intune](2023/update_intel_mefw.md)
 -- [Certificate-based BIOS Authentication](2023/cert_based_bios_authentication.md)
 -- [Updating Thin Installer with <br> Proactive Remediations](2023/ti_winget_pr.md)

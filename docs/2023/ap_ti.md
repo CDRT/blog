@@ -21,8 +21,8 @@ You'll need the following pieces to get started:
 
 - Current version of Lenovo Thin Installer - Download [here](https://support.lenovo.com/solutions/HT037099)
 - Win32 Content Prep tool - Download [here](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool)
-- Autopilot session detection script - 
-- PowerShell script  **Get-LnvUpdates.ps1** for the magic - 
+- Autopilot session detection script - <link>
+- PowerShell script  **Get-LnvUpdates.ps1** for the magic - <link>
 
 ### Solution
 
@@ -110,10 +110,16 @@ Review + save to create the app. Once it's created, head back to the properties,
 
 Deploy the **Get Lenovo Updates** Win32 app to a device group. Since this is intended for Autopilot devices, I'm going to deploy to a dynamic device group containing all of my Autopilot devices.
 
+You'll also need to adjust the Enrollment Status Page (ESP) settings.
+
+Under the **Block device use until required apps are installed if they are assigned to the user/device**, add the **Get Lenovo Updates** app to the list here.
+
+![ESP](../img/2023/ap_ti/image1.jpg)
+
 #### Checking the Results
 
 Prior to resealing the device and handing off to the user, you can review the results of the installation log found under **C:\Program Files(x86)\Lenovo\ThinInstaller\logs**
 
 On my test device, you can see almost a dozen drivers have been updated, including the BIOS
 
-![Results](../img/2023/ap_ti/image1.jpg)
+![Results](../img/2023/ap_ti/image2.jpg)

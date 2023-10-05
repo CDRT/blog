@@ -108,9 +108,11 @@ cmd.exe /c
 
 Review + save to create the app. Once it's created, head back to the properties, add the Thin Installer app we created earlier as a dependency and configure it to **Automatically Install**.
 
+#### Deploy
+
 Deploy the **Get Lenovo Updates** Win32 app to a device group. Since this is intended for Autopilot devices, I'm going to deploy to a dynamic device group containing all of my Autopilot devices.
 
-You'll also need to adjust the Enrollment Status Page (ESP) settings.
+You'll also need to adjust the [Enrollment Status Page](https://learn.microsoft.com/autopilot/enrollment-status) (ESP) settings.
 
 Under the **Block device use until required apps are installed if they are assigned to the user/device**, add the **Get Lenovo Updates** app to the list here.
 

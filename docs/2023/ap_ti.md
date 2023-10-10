@@ -7,9 +7,9 @@ date: 2023/10/5
 
 ---
 
-Revisiting a solution from [2020](https://blog.lenovocdrt.com/#/2020/ap_su) that leverages Lenovo System Update to update drivers during Autopilot provided a way to ensure devices were up-to-date before handing off to end users.
+Revisiting a solution from [2020](https://blog.lenovocdrt.com/#/2020/ap_su) that leverages Lenovo System Update to update drivers during Autopilot which provided a way to ensure devices were up-to-date before handing off to end users.
 
-Fast forward to this [2023](https://blog.lenovocdrt.com/#/2023/scripted_repo_creation) Configuration Manager OSD solution that will update drivers, BIOS, and firmware got me thinking: How awesome would it be to migrate this to Autopilot world and **really** provide users with completely up-to-date devices right out of the gate?
+Fast forward to this 2023 Configuration Manager [OSD solution](https://blog.lenovocdrt.com/#/2023/scripted_repo_creation) that will update drivers, BIOS, and firmware got me thinking: How awesome would it be to migrate this to Autopilot world and **really** provide users with completely up-to-date devices right out of the gate?
 
 ## Scenario
 

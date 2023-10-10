@@ -20,6 +20,12 @@
 			</item>
 		-->
 		<item>
+			<title>Autopilot + Thin Installer = Current Drivers/BIOS/Firmware</title>
+			<description>Update drivers/BIOS/Firmware during Autopilot</description>
+			<pubDate>Tue, 10 October 2023 13:00:00 EST</pubDate>
+			<link></link>
+			</item>
+		<item>
 			<title>Enable Logging for Commercial Vantage</title>
 			<description>Example solutions on how to enable logging for Commercial Vantage</description>
 			<pubDate>Thur, 10 August 2023 13:00:00 EST</pubDate>

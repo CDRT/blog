@@ -21,8 +21,13 @@ You'll need the following pieces to get started:
 
 - Current version of Lenovo Thin Installer - Download [here](https://support.lenovo.com/solutions/HT037099)
 - Win32 Content Prep tool - Download [here](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool)
-- Autopilot session detection script - <link>
-- PowerShell script  **Get-LnvUpdates.ps1** for the magic - <link>
+- Autopilot session detection script:
+
+https://github.com/philjorgensen/Intune/blob/main/Autopilot/Thin%20Installer/Detect-AutopilotSession.ps1
+
+- PowerShell script  **Get-LnvUpdates.ps1** for the magic: 
+
+https://github.com/philjorgensen/Intune/blob/main/Autopilot/Thin%20Installer/Get-LnvUpdates.ps1
 
 ### Solution
 

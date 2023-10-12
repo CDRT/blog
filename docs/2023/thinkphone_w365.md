@@ -64,14 +64,31 @@ Enter your credentials and you'll be taken to your Windows 365 cloud PC.
 
 ## Deploying the Motorola Ready For Assistant
 
-To enhance the ThinkPhone experience with Windows, you can deploy the Ready For Assistant store app to your users' devices.
+To take advantage of the enhanced ThinkPhone experience when combined with a Lenovo Windows PC, you can deploy the Ready For Assistant store app to your users' devices.
 
-Login to the [Intune admin center](https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/~/windowsApps) and add a new app.
+Login to the [Intune admin center](https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/~/windowsApps)
 
-Select **Microsoft Store app (new)** and click **Search the Microsoft Store app (new)**. If you search the store for **Ready For Assistant**, you won't get any results.
+Go to the Apps blade. Click **+Add** to create a new app.
 
-![Connect](..\img\2023\thinkphone_w365\image11.jpg)
+Select **Microsoft Store app (new)** for App type and click **Select**
+![Add App](..\img\2023\thinkphone_w365\image13.png)
 
-However, you can search using the app ID **XP8JRF5SXV03ZM** to add it
+Click **Search the Microsoft Store app (new)**. If you search the store for **Ready For Assistant**, you won't get any results. However, you can search using the app ID **XP8JRF5SXV03ZM** to add it
 
-![Connect](..\img\2023\thinkphone_w365\image12.jpg)
+![Find App](..\img\2023\thinkphone_w365\image14.png)
+
+Click on the app and then click **Select**. Once the app is added, find it in the list and open its Properties.
+
+![App Properties](..\img\2023\thinkphone_w365\image15.png)
+
+Scroll to the bottom and click **Edit** next to Assignments
+
+![Edit Assignment](..\img\2023\thinkphone_w365\image16.png)
+
+Configure the assignments as desired and then click **Review + save**
+
+![Assign App](..\img\2023\thinkphone_w365\image17.png)
+
+Devices will then get the app based on the configuration of the Assignment. It may require the devices to get to their scheduled sync before the offer is made.
+
+You can force a sync by going to the device in the Devices view and clicking the ![Sync](..\img\2023\thinkphone_w365\image18.png) button.

@@ -103,6 +103,12 @@ cmd.exe /c
 - Set the Install behavior to **System**
 - Set the Device restart behavior to **Determine behavior based on return codes**. The script will flag Intune for a Soft reboot after the updates have been installed.
 - On the Requirements section, add an additional Script requirement rule, specifying the **Detect-AutopilotSession.ps1** file. Since this is intended for Autopilot, we don't want this running post deployment when a user is logged in.
+  - Run script as 32-bit process on 64-bit clients: **No**
+  - Run this script using the logged on credentials: **No**
+  - Enfor script signature check: **No**
+  - Select output data type: **Boolean**
+  - Operator: **Equals**
+  - Value: **Yes**
 - For detection rules, we'll add another **File** rule type.
   - Path: **%ProgramFiles%\Lenovo\ThinInstaller\logs**
   - File or folder: **update_history.txt**

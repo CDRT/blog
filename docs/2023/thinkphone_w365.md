@@ -1,6 +1,6 @@
 ---
 author: Philip Jorgensen <br>
-date: 2023/10/10
+date: 2023/10/25
 ---
 
 # Windows 365 and ThinkPhone

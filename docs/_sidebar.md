@@ -3,6 +3,7 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2023**
+-- [ThinkPhone and the <br> Windows 365 Experience](2023/thinkphone_w365.md)
 -- [Autopilot + Thin Installer](2023/ap_ti.md)
 -- [Enabling Logging for <br> Commercial Vantage](2023/cv_su_logging.md)
 -- [Deploy Intel ME Firmware <br> Updates with Intune](2023/update_intel_mefw.md)

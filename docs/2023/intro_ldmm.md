@@ -153,4 +153,4 @@ PS C:\>
 
 #### See them all
 
-There are currently 24 cmdlets included in the module and more will be added over time. To see the complete list and all the details for running each one of them, visit the reference guide [here](https://docs.lenovocdrt.com/#/ldmm/ldmm_top)
+There are currently 23 cmdlets included in the module and more will be added over time. To see the complete list and all the details for running each one of them, visit the reference guide [here](https://docs.lenovocdrt.com/#/ldmm/ldmm_top)

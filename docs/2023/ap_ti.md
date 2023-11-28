@@ -5,6 +5,8 @@ date: 2023/10/10
 
 # Autopilot + Thin Installer = <br> Current Drivers/BIOS/Firmware
 
+?> Updated 2023/11
+
 ---
 
 Revisiting a solution from [2020](https://blog.lenovocdrt.com/#/2020/ap_su) that leverages Lenovo System Update to update drivers during Autopilot which provided a way to ensure devices were up-to-date before handing off to end users.
@@ -25,7 +27,7 @@ You'll need the following pieces to get started:
 
 https://github.com/philjorgensen/Intune/blob/main/Autopilot/Thin%20Installer/Detect-AutopilotSession.ps1
 
-- PowerShell script  **Get-LnvUpdates.ps1** for the magic: 
+- PowerShell script  **Get-LnvUpdates.ps1** for the magic:
 
 https://github.com/philjorgensen/Intune/blob/main/Autopilot/Thin%20Installer/Get-LnvUpdates.ps1
 
@@ -136,3 +138,13 @@ Prior to resealing the device and handing off to the user, you can review the re
 On my test device, you can see almost a dozen drivers have been updated, including the BIOS
 
 ![Results](../img/2023/ap_ti/image2.jpg)
+
+---
+
+!> In a Self-Deploy scenario, you may need to use a Registry requirement rule for detection instead of **Detect-AutopilotSession.ps1**. The rule type parameters should be as follows:
+
+- **Key path**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+- **Value name**: DefaultUserName
+- **Registry key requirement**: Select String comparison
+- **Operator**: Select Equals
+- **Value**: defaultuser0

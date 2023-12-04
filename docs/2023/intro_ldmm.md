@@ -1,6 +1,6 @@
 ---
 author: Joe Parker <br>
-date: 2023/11/10
+date: 2023/12/07
 ---
 
 # Introducing: <br> Lenovo Device Management Module
@@ -14,6 +14,8 @@ The Lenovo Device Management Module is a PowerShell module that provides several
 You can learn all about PowerShell modules here: [About Modules](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7.3)
 
 You can also find a complete reference for each of the available cmdlets in the module here:  [LDMM](https://docs.lenovocdrt.com/#/ldmm/ldmm_top)
+
+## Installing Lenovo Device Management Module
 
 The module itself is currently available for download here: [ldmm_1.0.0.zip](https://download.lenovo.com/cdrt/tools/ldmm_1.0.0.zip)
 
@@ -40,7 +42,7 @@ ModuleType Version    Name                                ExportedCommands
 Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine, Add-LnvSULogging, Export-LnvUpdateRetrieverConfig...}   
 ```
 
-
+## Using the Lenovo Device Management Module
 
 Let's see what a few of the cmdlets can do for us.
 
@@ -50,7 +52,7 @@ Let's see what a few of the cmdlets can do for us.
 
 This cmdlet returns a list of the CVE identifiers that are listed as addressed vulnerabilities in the current BIOS update for the specified system. Only BIOS updates are covered by this cmdlet. A machine type can be passed as a parameter.  If no parameter is specified, the machine type of the running system will be used. CVE Data may not be available for all machine types.
 
-```
+``` PowerShell
 PS C:\> Get-LnvCVE -MachineType 21DD
 CVE-2023-31100
 CVE-2022-4304
@@ -76,7 +78,7 @@ PS C:\>
 
 But what if you don't know the machine type of a particular model? You can use this cmdlet to the possible machine types based on the friendly model name. Specify less detail in the model name if you are not finding the results you are looking for. This will increase the chance of a string match and will return more results. In some cases you may see multiple machine types for the same model. Some of these may be Intel vs. AMD models.
 
-```
+``` PowerShell
 PS C:\> Find-LnvMachineType -ModelName 'ThinkPad L15 Gen 4'
 ThinkPad L15 Gen 4 Type 21H3 21H4 = 21H3
 ThinkPad L15 Gen 4 Type 21H3 21H4 = 21H4
@@ -84,11 +86,12 @@ ThinkPad L15 Gen 4 Type 21H7 21H8 = 21H7
 ThinkPad L15 Gen 4 Type 21H7 21H8 = 21H8
 PS C:\>
 ```
+
 #### Get-LnvAvailableBiosVersion
 
 If you specify a machine type, the cmdlet will return the version of the  currently available BIOS update. If no machine type is specified, the cmdlet will use the running system's machine type and will compare the version of the currently available update to the version of the system and return an alert if the update is newer. The ```-Download``` switch can be used to trigger the download of the current update in either case and it will be stored in the current working directory.
 
-```
+``` PowerShell
 PS C:\> Get-LnvAvailableBiosVersion -MachineType 21EY
 Current available version: 1.08
 PS C:\> Get-LnvAvailableBiosVersion -MachineType 21EY -Download                                                                               Current available version: 1.08                                                                                                               PS C:\> ls
@@ -118,15 +121,15 @@ PS C:\>
 
 This cmdlet will download the SCCM Driver Pack based on the specified machine type, OS and OS build version. Tab completion can be used to select the OS build version in the correct format. The cmdlet will leverage the default browser for downloading the pack so the user can select the location to save the file to.
 
-```
-PS C:\> Get-LnvDriverPack -MachineType 21EY -WindowsVersion win11 -OSBuildVersion 22H2
+``` PowerShell
+PS C:\> Get-LnvDriverPack -MachineType 21EY -WindowsVersion 11 -OSBuildVersion 22H2
 ```
 
 #### Lenovo Device Data
 
 Sometimes you may be writing a script that needs to make use of a certain data element and you cannot easily remember the WMI query needed to get the value you are looking for.  There are several cmdlets that makes this task much easier.
 
-```
+``` PowerShell
 PS C:\> Get-LnvMachineType
 21DD
 
@@ -145,12 +148,12 @@ PS C:\>
 
 For instances where Update Retriever cannot be used to create the local repository or where full automation of the repository creation is desired, this cmdlet can be used instead. It can be customized and executed on a regular basis to get the latest update packages. This cmdlet is based on the PowerShell script that was documented in this blog article: [Create Local Repository Using PowerShell](https://blog.lenovocdrt.com/#/2023/scripted_repo_creation)
 
-```
-PS C:\> Get-LnvUpdatesRepo -MachineTypes 21EY -OS 11 -PackageTypes 3 -RebootTypes 5 -RepositoryPath c:\21EY
+``` PowerShell
+PS C:\> Get-LnvUpdatesRepo -MachineTypes 21EY -WindowsVersion 11 -PackageTypes 3 -RebootTypes 5 -RepositoryPath c:\21EY
 
 PS C:\>
 ```
 
-#### See them all
+## See Them All
 
-There are currently 23 cmdlets included in the module and more will be added over time. To see the complete list and all the details for running each one of them, visit the reference guide [here](https://docs.lenovocdrt.com/#/ldmm/ldmm_top)
+There are currently 23 cmdlets included in the module and more will be added over time. To see the complete list and all the details for running each one of them, visit the reference guide [here](https://docs.lenovocdrt.com/#/ldmm/ldmm_top).

@@ -84,7 +84,7 @@ This sample PowerShell script can be used for detection
 
 ```powershell
 # Change this variable to the version you're deploying
-$DeployedVantageVersion = "10.2208.22.0"
+$DeployedVantageVersion = "10.2305.30.0"
 
 $ErrorActionPreference = "Stop"
 
@@ -97,8 +97,12 @@ try {
     If (Get-Service -Name LenovoVantageService) {
         # Check for older of version of Vantage Service that causes UAC prompt. This is due to an expired certificate.  
         $minVersion = "3.8.23.0"
+        $path = Join-Path -Path ${env:ProgramFiles(x86)} -ChildPath "Lenovo\VantageService\*\LenovoVantageService.exe" -Resolve
         $path = ${env:ProgramFiles(x86)} + "\Lenovo\VantageService\*\LenovoVantageService.exe"
         $version = (Get-ChildItem -Path $path).VersionInfo.FileVersion
+        if ($version.Count -gt 1) {
+            $version = $version[-1]
+        }
             
         if ([version]$version -le [version]$minVersion) {
             

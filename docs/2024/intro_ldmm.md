@@ -7,7 +7,7 @@ date: 2023/12/07
 
 ---
 
-![LDMM Toolbox](..\img\2023\intro_ldmm\toolbox.png)
+![LDMM Toolbox](..\img\2024\intro_ldmm\toolbox.png)
 
 The Lenovo Device Management Module is a PowerShell module that provides several useful cmdlets for making it easier to manage Lenovo commercial PCs. The module supports Lenovo's commercial portfolio of ThinkPad, ThinkCentre and ThinkStation products.
 
@@ -44,7 +44,9 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 ## Using the Lenovo Device Management Module
 
-Let's see what a few of the cmdlets can do for us.
+Let's see what a few of the cmdlets can do for us. 
+
+?> You can also find a complete reference for each of the available cmdlets in the module here:  [LDMM](https://docs.lenovocdrt.com/#/ldmm/ldmm_top)
 
 ?> Many of the cmdlets require Internet access to provide data. Some may require running as Administrator.
 
@@ -76,7 +78,7 @@ PS C:\>
 
 #### Find-LnvMachineType
 
-But what if you don't know the machine type of a particular model? You can use this cmdlet to the possible machine types based on the friendly model name. Specify less detail in the model name if you are not finding the results you are looking for. This will increase the chance of a string match and will return more results. In some cases you may see multiple machine types for the same model. Some of these may be Intel vs. AMD models.
+But what if you don't know the machine type of a particular model? You can use this cmdlet to the possible machine types based on the friendly model name. Specify less detail in the model name if you are not finding the results you are looking for. This will increase the chance of a string match and will return more results. In some cases you may see multiple machine types for the same model. Some of these may be Intel vs. AMD models. If you are creating a script to run on a device and just need the machine type of that device, you can use the Get-LnvMachineType  (see [below](#lenovo-device-data)).
 
 ``` PowerShell
 PS C:\> Find-LnvMachineType -ModelName 'ThinkPad L15 Gen 4'
@@ -147,6 +149,8 @@ PS C:\>
 #### Get-LnvUpdatesRepo
 
 For instances where Update Retriever cannot be used to create the local repository or where full automation of the repository creation is desired, this cmdlet can be used instead. It can be customized and executed on a regular basis to get the latest update packages. This cmdlet is based on the PowerShell script that was documented in this blog article: [Create Local Repository Using PowerShell](https://blog.lenovocdrt.com/#/2023/scripted_repo_creation)
+
+!> One of the parameters of this cmdlet, -RT5toRT3, will generate a repository where the Reboot Type 5 updates are changed to Reboot Type 3 which modifies the XML Package Descriptor. A repository created this way with modified XML package descriptors will require you to use Thin Installer to process the updates in the repository. Commercial Vantage and Lenovo System Update will not recognize the modified updates.
 
 ``` PowerShell
 PS C:\> Get-LnvUpdatesRepo -MachineTypes 21EY -WindowsVersion 11 -PackageTypes 3 -RebootTypes 5 -RepositoryPath c:\21EY

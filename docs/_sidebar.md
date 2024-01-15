@@ -4,6 +4,7 @@
 
 - **2024**
 -- [Introduction to Lenovo <br>Device Management Module](2024/intro_ldmm.md)
+
 - **2023**
 -- [ThinkPhone and the <br> Windows 365 Experience](2023/thinkphone_w365.md)
 -- [Autopilot + Thin Installer](2023/ap_ti.md)

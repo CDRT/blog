@@ -2,6 +2,9 @@
 
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
+- **2024**
+-- [MECM - Driver Import Error: <br> "Some packages cannot be updated"](2024/cm_drivers_import.md)
+
 - **2023**
 -- [ThinkPhone and the <br> Windows 365 Experience](2023/thinkphone_w365.md)
 -- [Autopilot + Thin Installer](2023/ap_ti.md)

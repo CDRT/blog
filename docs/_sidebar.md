@@ -3,6 +3,7 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2024**
+-- [Introduction to Lenovo <br>Device Management Module](2024/intro_ldmm.md)
 -- [MECM - Driver Import Error: <br> "Some packages cannot be updated"](2024/cm_drivers_import.md)
 
 - **2023**

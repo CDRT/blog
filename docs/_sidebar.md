@@ -4,6 +4,7 @@
 
 - **2024**
 -- [Introduction to Lenovo <br>Device Management Module](2024/intro_ldmm.md)
+-- [Configuration Manager<br> - Driver Import Error: <br> "Some packages cannot be updated"](2024/cm_drivers_import.md)
 
 - **2023**
 -- [ThinkPhone and the <br> Windows 365 Experience](2023/thinkphone_w365.md)

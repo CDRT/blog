@@ -76,7 +76,7 @@ ThinInstaller.exe /CM -repository "C:\ProgramData\Lenovo\ThinInstaller\Repositor
 Only drivers and apps are filtered for installation using this command line
 
 ```cmd
-ThinInstaller.exe /CM "C:\ProgramData\Lenovo\ThinInstaller\Repository" -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 1,2 -debug -noicon -noreboot -exporttowmi
+ThinInstaller.exe /CM -repository "C:\ProgramData\Lenovo\ThinInstaller\Repository" -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 1,2 -debug -noicon -noreboot -exporttowmi
 ```
 
 ?>In some cases, typically with Thunderbolt, there may be a requirement that the latest driver needs to be installed *BEFORE* the firmware can be updated. This pass will ensure those drivers are installed before the firmware is installed in the next pass.
@@ -88,7 +88,7 @@ ThinInstaller.exe /CM "C:\ProgramData\Lenovo\ThinInstaller\Repository" -search A
 Firmware packages, such as Intel ME Firmware, are installed in the final pass using this command line
 
 ```cmd
-ThinInstaller.exe /CM "C:\ProgramData\Lenovo\ThinInstaller\Repository" -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 2,4 -debug -noicon -noreboot -exporttowmi
+ThinInstaller.exe /CM -repository "C:\ProgramData\Lenovo\ThinInstaller\Repository" -search A -action INSTALL -includerebootpackages 0,3 -packagetypes 2,4 -debug -noicon -noreboot -exporttowmi
 ```
 
 ?>In some cases there are drivers that do not become applicable until another driver has been installed. This final pass includes drivers to ensure those are covered for a complete installation.

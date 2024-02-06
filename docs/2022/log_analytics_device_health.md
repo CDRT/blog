@@ -81,7 +81,7 @@ Assuming a Log Analytics Workspace has been created, you'll need the **Workspace
 
 ## Deploying the Remediation
 
-Once you have Commercial Vantage installed and the necessary policies enabled on your endpoints, it's time to deploy the Remediation script to collect inventory.
+Once you have Commercial Vantage installed and the necessary policies enabled on your endpoints, it's time to deploy the Remediation script to collect inventory. The script will install the [Lenovo Device Management Module](https://blog.lenovocdrt.com/#/2024/intro_ldmm) on the endpoint to help gather certain data, such as Available BIOS versions and CVEs.
 
 !> Replace the **$customerID** and **$sharedKey** variables in the **Get-LenovoDeviceStatus.ps1** script
 

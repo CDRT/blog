@@ -1,15 +1,19 @@
 ---
-author: Philip Jorgensen
+author: Philip Jorgensen <br>
 date: 09/27/2022
 ---
 
-# Intune Reporting: Update Status, Battery Health, and Warranty Info
+# Reporting on Update Status, <br> BIOS Level, CVEs, and More
 
 ![Azure Workbooks Icon](../img/2022/log_analytics_device_health/azure-workbooks.png)
 
-This post will walk through deploying a [Proactive Remediation](https://learn.microsoft.com/mem/analytics/proactive-remediations) script that will collect data from specific Lenovo WMI classes using the [HTTP Data Collector API](https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api). As a result, the data will be sent to a [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview) in Azure Monitor.
+?> Updated 2024/02
 
-We can then create an [Azure Monitor Workbook](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) to report on the following data from your Lenovo devices
+This post will walk through deploying a [Remediation](https://learn.microsoft.com/mem/intune/fundamentals/remediations) script that will collect data from specific Lenovo WMI classes using the [HTTP Data Collector API](https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api). As a result, the data will be sent to a [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview) in Azure Monitor.
+
+Note, the HTTP Data Collector API will be deprecated on **2026/09/14**
+
+We can then create an [Azure Monitor Workbook](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) to report on the following data from your Lenovo devices.
 
 !> This solution is not supported on ThinkBook
 
@@ -19,11 +23,23 @@ We can then create an [Azure Monitor Workbook](https://learn.microsoft.com/azure
 
 ![UpdateStatus](../img/2022/log_analytics_device_health/image1.jpg)
 
+![UpdateStatus](../img/2022/log_analytics_device_health/image2_1.jpg)
+
+![UpdateStatus](../img/2022/log_analytics_device_health/image2_2.jpg)
+
 ---
+
+## BIOS Level and CVEs
+
+> Displays BIOS level information for each model and if the model is affected by any CVEs.
+
+![BIOS](../img/2022/log_analytics_device_health/image3_1.jpg)
+
+![BIOS](../img/2022/log_analytics_device_health/image3_2.jpg)
 
 ## Battery Health Status
 
-> Lists all endpoints and health of their battery (Good/Bad)
+> Lists all endpoints and health of their battery.
 
 ![BatteryHealth](../img/2022/log_analytics_device_health/image2.jpg)
 
@@ -37,7 +53,7 @@ We can then create an [Azure Monitor Workbook](https://learn.microsoft.com/azure
 
 ## **Prerequisites**
 
-This is all dependent on [Lenovo Commercial Vantage](https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise) being installed on your endpoints.
+The data gathered relies on [Lenovo Commercial Vantage](https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise) being installed on your endpoints.
 
 ?> For a step by step guide on how to deploy Commercial Vantage through Intune, refer to this blog [article](https://blog.lenovocdrt.com/#/2020/cv_intune_deploy).
 
@@ -46,6 +62,8 @@ The following policies need to be enabled in order to create the WMI namespaces 
 - Configure System Update
 - Write warranty information to WMI table
 - Write battery information to WMI table
+
+If these polices aren't enabled, the status will return as "Unavailable" in the workbook.
 
 ### Required Files
 
@@ -61,22 +79,22 @@ Assuming a Log Analytics Workspace has been created, you'll need the **Workspace
 
 ![LA-Workspace](../img/2022/log_analytics_device_health/image5.jpg)
 
-## Deploying the Proactive Remediation Script Package
+## Deploying the Remediation
 
-Once you have Commercial Vantage installed and the necessary policies enabled on your endpoints, it's time to deploy a Proactive Remediation script to collect inventory.
+Once you have Commercial Vantage installed and the necessary policies enabled on your endpoints, it's time to deploy the Remediation script to collect inventory.
 
 !> Replace the **$customerID** and **$sharedKey** variables in the **Get-LenovoDeviceStatus.ps1** script
 
 - Login to the Microsoft Endpoint Manager [admin center](https://endpoint.microsoft.com)
-- Navigate to **Reports** > **Endpoint Analytics** > **Proactive remediations**
-- Click **Create script package**
-- Enter a name for the script package and click **Next**
+- Navigate to **Devices** > **Scripts and remediations**
+- Click **Create**
+- Enter a name for the script and click **Next**
 - Browse to **Get-LenovoDeviceStatus.ps1** for the **Detection script file**
 - Select **Yes** to **Run script in 64-bit PowerShell** and click **Next**
 - Assign to a group and set the schedule for the script package to run.
 - **Create**
 
-As devices receive the policy, review the **Device status** blade to verify if devices don't have Commercial Vantage installed or the necessary policies enabled. You can review this by adding the **Pre-remediation detection output** column. If there's no issue, detection status should simply return **Without issues**.
+As devices receive the policy, review the **Device status** blade to verify if devices don't have Commercial Vantage installed or the necessary policies enabled. You can review this by adding the **Pre-remediation detection output** column.
 
 ## Reporting
 

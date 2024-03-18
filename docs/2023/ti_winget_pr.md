@@ -1,13 +1,13 @@
 ---
-author: Philip Jorgensen <br>
-date: 2023/4/12
+Author: Philip Jorgensen <br>
+Date: 2023-04-12
 ---
 
 # Updating Lenovo Thin Installer <br> with Proactive Remediations
 
----
-
 ![ThinInstaller](../img/2023/ti_winget_pr/ti_icon.png)
+
+---
 
 If your endpoints rely on Thin Installer to update drivers/BIOS/firmware, it should always be on the latest release. As part of the certificate verification process for installing updates with Thin Installer, older versions of Thin Installer cannot validate packages signed with newer certificates. The only solution is to upgrade Thin Installer, hence the reason for this article.
 

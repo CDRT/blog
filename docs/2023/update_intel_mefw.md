@@ -1,6 +1,6 @@
 ---
-author: Philip Jorgensen <br>
-date: 2023/7/26
+Author: Philip Jorgensen <br>
+Date: 2023-07-26
 ---
 
 # Deploying Intel ME Firmware <br> Updates with Intune

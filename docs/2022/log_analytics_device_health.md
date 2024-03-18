@@ -1,6 +1,6 @@
 ---
-author: Philip Jorgensen <br>
-date: 09/27/2022
+Author: Philip Jorgensen <br>
+Date: 2022-09-27
 ---
 
 # Reporting on Update Status, <br> BIOS Level, CVEs, and More
@@ -8,6 +8,8 @@ date: 09/27/2022
 ![Azure Workbooks Icon](../img/2022/log_analytics_device_health/azure-workbooks.png)
 
 ?> Updated 2024/02
+
+---
 
 This post will walk through deploying a [Remediation](https://learn.microsoft.com/mem/intune/fundamentals/remediations) script that will collect data from specific Lenovo WMI classes using the [HTTP Data Collector API](https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api). As a result, the data will be sent to a [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview) in Azure Monitor.
 

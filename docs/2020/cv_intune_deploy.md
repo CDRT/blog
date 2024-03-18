@@ -1,9 +1,11 @@
 ---
-author: Philip Jorgensen
-date: 11/20/2020
+Author: Philip Jorgensen <br>
+Date: 11/20/2020
 ---
 
 # Deploying Commercial Vantage with Intune
+
+---
 
 Download the latest version of Commercial Vantage with Deployment Guide [here](https://support.lenovo.com/solutions/hf003321)
 

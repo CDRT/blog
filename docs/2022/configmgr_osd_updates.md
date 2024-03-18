@@ -1,10 +1,15 @@
-### Installing Updates from the Lenovo 3rd Party <br> Catalog in a ConfigMgr Operating System Deployment
-*Author: Philip Jorgensen*
+---
+Author: Philip Jorgensen <br>
+Date: 2022-03-15
+---
+
+# Installing Updates from the Lenovo 3rd Party <br> Catalog in a ConfigMgr Operating System Deployment
 
 ---
 
-**Prerequisites**
-- Enable third-party updates on your Software Update Point - **https://docs.microsoft.com/en-us/mem/configmgr/sum/deploy-use/third-party-software-updates**
+## Prerequisites
+
+- Enable third-party updates on your Software Update Point - **https://docs.microsoft.com/mem/configmgr/sum/deploy-use/third-party-software-updates**
 
 - Subscribe to the [Lenovo Third-Party Update Catalog](https://blog.lenovocdrt.com/#/2020/lucv3) in ConfigMgr - **https://docs.microsoft.com/en-us/mem/configmgr/sum/deploy-use/third-party-software-updates#subscribe-to-a-third-party-catalog-and-sync-updates**
 
@@ -19,6 +24,7 @@ Initiate a site-wide synchronization of software updates to sync the metadata fo
 In this example, I'm going to publish the **Lenovo Updates Catalog Agent**. This is a light weight tool that performs data conversions in WMI to assist with the evaluation of the installation and applicability rules for each update in the Lenovo Updates Catalog. The installation and applicability rules determine if an update is currently installed or if an update is applicable to the device. This is **required** on all Lenovo products if you plan on publishing and deploying other updates.
 
 In the **All Software Updates** node, filter the updates by adding the following criteria:
+
 - Title contains **Lenovo Updates Catalog Agent**
 - Expired set to **No**
 - Superseded set to **No**
@@ -33,6 +39,7 @@ Select the Lenovo Updates Catalog Agent update and select **Publish Third-Party 
 I will create an Automatic Deployment Rule to add the LUCAgent (and any future versions) to a Software Update Group, which can then be deployed to a Device Collection.
 
 In the **Software Library** workspace, expand **Sofware Updates** and select **Automatic Deployment Rules**.
+
 - Select **Create Automatic Deployment Rule** from the ribbon bar.
 - Enter **Lenovo Updates Catalog Agent** for the name of the rule.
 - Specify the **All Unknown Computers** collection.
@@ -41,6 +48,7 @@ In the **Software Library** workspace, expand **Sofware Updates** and select **A
 
 On the **Deployment Settings** page, set the type of deployment to **Required**.
 Set the following property filters and search criteria as follows:
+
 - Superseded **No**
 - Title **Lenovo Updates Catalog Agent**
 - Vendor **Lenovo**
@@ -52,6 +60,7 @@ Click Preview and 1 updates should return
 Specify the recurring schedule for the rule. I chose to run the rule after any software update point synchronization.
 
 Further in the wizard, select the option to **Create a new deployment package**. This will contain the update(s) associated with the ADR.
+
 - Enter the name **Lenovo Updates Catalog Agent**
 - Specify the source path to where the deployment package will reside.
 - Add the Distribution Points or distribution point groups to host the content.
@@ -65,7 +74,7 @@ Select the **Software Update Groups** node to verify the Lenovo Updates Catalog 
 
 ---
 
-**Wsus Certificate and Installation Script**
+## Wsus Certificate and Installation Script
 
 To successfully install the LUCAgent (or any Third-Party update) in an operating system deployment, the third-party Wsus signing certificate needs to be installed in the **Trusted Root** and **Trusted Publishers** certificate stores. The Windows Update agent policy to **Allow signed updates for an intranet Microsoft update service location** will also need to be set. This is handled through Client Settings under the **Software Updates** tab.
 
@@ -94,17 +103,19 @@ In my lab, I saved both items to **\\share\ConfigMgr\Content\OSD\Certificates**
 
 ---
 
-**Operating System Deployment Task Sequence**
+## Operating System Deployment Task Sequence
 
 In the Configuration Manager console, select the **Software Library** workspace, expand **Application Management**, and select the **Packages** node.
+
 - Select **Create Package**
 - Enter a name for the package.
 - Tick the box beside **This package contains source files**
-    - Set the source folder to the location where **Import-WsusSigningCertificate.ps1** and the Wsus signing certificate reside.
+  - Set the source folder to the location where **Import-WsusSigningCertificate.ps1** and the Wsus signing certificate reside.
 - Do not create a program for the package.
 - Distribute the package to your Distribution Points and/or Distribution Point Groups.
 
 Create a new or Task Sequence or edit an existing one. After the **Setup Windows and Configuration Step**, add a **Run PowerShell Script** step.
+
 - Name the step **Import Certificate**
 - Select the package that you just created and enter the script name **Import-WsusSigningCertificate.ps1**
 - Set the PowerShell execution policy to **Bypass**
@@ -112,6 +123,7 @@ Create a new or Task Sequence or edit an existing one. After the **Setup Windows
 ![](../img/2022/configmgr_osd_updates/image6.jpg)
 
 Add an **Install Software Updates** step
+
 - Select **Required for installation - Mandatory software updates only**
 
 Deploy this Task Sequence to an Unknown Lenovo device. Monitoring the **smsts.log**, I see the Windows Update agent policy to accept trusted publishers has been set and the certificate has been added to the certificate stores.
@@ -122,4 +134,4 @@ A bit further down, The installation of the LUC Agent has completed successfully
 
 ![](../img/2022/configmgr_osd_updates/image8.jpg)
 
-If these steps weren't added, you would see a **0x800b0109** error in the log, which translates to "A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider." 
+If these steps weren't added, you would see a **0x800b0109** error in the log, which translates to "A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider."

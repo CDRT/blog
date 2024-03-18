@@ -1,11 +1,13 @@
 ---
-author: Philip Jorgensen
-date: 06/15/2022
+Author: Philip Jorgensen <br>
+Date: 2022-06-15
 ---
 
 # Setting an Asset Tag on ThinkPads using Intune Proactive Remediations
 
 ![Asset Tag Icon](../img/2022/intune_asset_tag/assettag.jpg)
+
+---
 
 For the unaware, Lenovo provides a [Windows Utility to Read and Write Asset ID Information](https://support.lenovo.com/downloads/ds039503), specifically for ThinkPad. With this utility, you are able to set asset ID data such as an Owner Name, Owner Location, Asset Number and several other pieces of information.
 
@@ -14,6 +16,7 @@ Refer to the [ReadMe](https://download.lenovo.com/pccbbs/mobiles/giaw03ww.txt) f
 ?> The USERASSETDATA.ASSET_NUMBER is available through WMI by querying the SMBIOSAssetTag field of the Win32_SystemEnclosure class.
 
 This solution will focus on setting:
+
 - **Asset Tag**
 - **Owner Name**
 - **Department**

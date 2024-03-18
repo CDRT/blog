@@ -1,7 +1,12 @@
-### How to Use ThinkCentre's TPM Firmware <br> Switch Tool with ConfigMgr
-*Author: Philip Jorgensen*
+---
+Author: Philip Jorgensen <br>
+Date: 2018-03-26
+---
+
+# How to Use ThinkCentre's TPM Firmware <br> Switch Tool with ConfigMgr
 
 ---
+
 This article will cover the TPM Firmware Switch Tool that was released to remedy affected ThinkCentres described in the [LEN-15552 Security Advisory](https://support.lenovo.com/us/en/product_security/len-15552).
 
 | M71x-Series | M91x-Series |
@@ -11,7 +16,6 @@ This article will cover the TPM Firmware Switch Tool that was released to remedy
 | M710q | M910q |
 | M715s | M910x |
 | M715t |
- 
 
 !>If a system is configured for TPM 2.0, the BIOS level must be at a specific level before the firmware update can be applied. Links to the BIOS versions can be found in the matrix.
 

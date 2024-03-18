@@ -1,11 +1,11 @@
 ---
-author: Philip Jorgensen <br>
-date: 2023/10/10
+Author: Philip Jorgensen <br>
+Date: 2023-10-10
 ---
 
 # Autopilot + Thin Installer = <br> Current Drivers/BIOS/Firmware
 
-?> Updated 2023/11
+?> Updated 2023-11
 
 ---
 

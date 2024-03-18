@@ -1,5 +1,11 @@
-### Configure BIOS Settings Through Intune using the Think BIOS Config Tool
-*Author: Philip Jorgensen*
+---
+Author: Philip Jorgensen <br>
+Date: 2021-12-08
+---
+
+# Configure BIOS Settings Through Intune using the Think BIOS Config Tool
+
+---
 
 There are numerous articles out in the community that walk through how to configure BIOS settings through Intune.  The majority of them being PowerShell solutions.  
 
@@ -11,7 +17,7 @@ Before proceeding, make sure you have an exported .ini file that contains the de
 
 Since my target systems have a Supervisor password already set, the first line is the encrypted Supervisor password which was created using the specified secret key as part of the tool's capture process.  Note, there's no way to set an initial Supervisor password with this tool.
 
-**Preparing the Win32 App source files**
+## Preparing the Win32 App source files
 
 Create a temporary directory and place the HTA, .ini file, and the following sample PowerShell script (save as a .ps1), which will be used to call the tool and apply the .ini.
 
@@ -50,7 +56,7 @@ Your directory should have 3 items
 
 ![](../img/2021/intune_bios_settings/image2.jpg)
 
-**Create and Upload the Win32 App**
+## Create and Upload the Win32 App
 
 We're going to use the Win32 Content Prep [tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to create an .intunewin file that will be uploaded to Intune.
 
@@ -72,7 +78,6 @@ cmd.exe /c del %ProgramData%\Lenovo\ThinkBiosConfig\ThinkBiosConfig.tag
 ```
 
 ![](../img/2021/intune_bios_settings/image5.jpg)
-
 
 Set Operating system architecture to **64-bit** and Minimum operating system to **Windows 10 1607**
 
@@ -110,7 +115,7 @@ The tool generates a log file so here you can see my Supervisor password has bee
 
 ![](../img/2021/intune_bios_settings/image9.jpg)
 
-?>**Additional Notes:** 
+### Additional Notes
 
 - You can combine settings across different products into a single .ini and apply them to all of your devices which use the same BIOS password (only one password can be specified per .ini file).  There may be a BIOS setting from one device with a value of **Enabled** whereas another device's value is **Enable**.  For example: LockBIOSSetting,**Enable** vs. LockBIOSSetting,**Enabled** If one doesn't apply to a device, it will simply skip it.
 - If you choose to deploy this as a Required app for Autopilot devices, the dreaded reboot during ESP will occur, resulting in the extra user login.

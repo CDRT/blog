@@ -1,6 +1,6 @@
 ---
-author: Philip Jorgensen
-date: 08/10/2022
+Author: Philip Jorgensen <br>
+Date: 2022-08-10
 ---
 
 # Correcting the Qualcomm X55 WWAN Excessive Logging Issue

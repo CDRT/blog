@@ -1,11 +1,13 @@
 ---
-author: Philip Jorgensen
-date: 03/31/2017
+Author: Philip Jorgensen <br>
+Date: 2017-03-31
 ---
 
 # Preparing the TPM for BitLocker Pre-provisioning using ConfigMgr
 
 ![](../img/2017/tpm_pre_provision/bitlocker.jpg)
+
+---
 
 Pre-provisioning the disk will encrypt only used space, so when this step executes, the drive will be encrypted before the operating system has been laid down to the client, saving a ton of time.
 

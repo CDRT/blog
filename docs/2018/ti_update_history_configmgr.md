@@ -1,6 +1,6 @@
 ---
-author: Philip Jorgensen
-date: 10/22/2018
+Author: Philip Jorgensen <br>
+Date: 2018-10-22
 ---
 
 # Tracking Thin Installer Update History With ConfigMgr Current Branch

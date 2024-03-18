@@ -1,7 +1,13 @@
-### Dynamically Updating Think Product <br> BIOS with ConfigMgr
-*Author: Philip Jorgensen*
+---
+Author: Philip Jorgensen <br>
+Date: 2017-09-08
+---
+
+# Dynamically Updating Think Product <br> BIOS with ConfigMgr
 
 ![](../img/2017/dynamic_bios_update/holygrail.jpg)
+
+---
 
 ?>What follows is a brief look at what is possible and not necessarily recommended for everyone.  Hopefully someone finds it useful.
 

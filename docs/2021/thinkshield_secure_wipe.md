@@ -1,11 +1,13 @@
 ---
-author: Philip Jorgensen
-date: 12/08/2021
+author: Philip Jorgensen <br>
+date: 2021-12-08
 ---
 
 # ![Logo](../img/2021/thinkshield_secure_wipe/thinkshield.jpg)
 
-Updated 2023/8/3
+?> Updated 2023-08-03
+
+---
 
 ## Overview
 

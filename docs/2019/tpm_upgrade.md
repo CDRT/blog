@@ -1,7 +1,13 @@
-### Upgrading TPM Spec 1.2 to 2.0 <br> on ThinkPad using ConfigMgr Current Branch
-*Author: Philip Jorgensen*
+---
+Author: Philip Jorgensen <br>
+Date: 2018-06-29
+---
+
+# Upgrading TPM Spec 1.2 to 2.0 <br> on ThinkPad using ConfigMgr Current Branch
 
 ![](../img/2019/tpm_upgrade/image1.jpg)
+
+---
 
 Now that your Windows 7 to 10 migration is complete, you may want to upgrade the TPM Spec version from 1.2 to 2.0 to take full advantage of Windows 10's security features, like Device Guard and Credential Guard.
 

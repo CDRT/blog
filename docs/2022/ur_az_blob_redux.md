@@ -1,8 +1,10 @@
 ---
-author: Philip Jorgensen
-date: 01/05/2022
+Author: Philip Jorgensen <br>
+Date: 01/05/2022
 ---
 # Revisiting Update Retriever and Azure Blob Storage
+
+---
 
 This is a follow up to a previous [article](https://blog.lenovocdrt.com/#/2019/ur_az_blob) that walked through hosting an on-prem Update Retriever repository in an Azure Blob Storage.
 
@@ -12,7 +14,7 @@ The main focus of this article is a rather hot topic: **Silently installing Bios
 
 Historically, Bios packages force a reboot and prompt the user to proceed with the update. In an enterprise, suppressing these prompts and preventing any forced reboots is extremely important.
 
-This solution assumes you have an on-prem Update Retriever repository and Azure Blob Storage already in place. For authentication, I'm using a [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal), which the example script below is based off of.
+This solution assumes you have an on-prem Update Retriever repository and Azure Blob Storage already in place. For authentication, I'm using a [Service Principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal), which the example script below is based off of.
 
 ?> Since we have to modify the packages, make sure your Update Retriever repository is configured as a **Local** repository.
 

@@ -1,6 +1,6 @@
 ---
-author: Philip Jorgensen
-date: 03/12/2020
+Author: Philip Jorgensen <br>
+Date: 03/12/2020
 ---
 
 # Managing System Update with Intune

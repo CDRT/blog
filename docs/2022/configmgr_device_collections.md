@@ -1,13 +1,19 @@
-### Automatically Create ConfigMgr Device Collections <br> for Lenovo Products
-*Author: Philip Jorgensen*
+---
+Author: Philip Jorgensen <br>
+Date: 2022-01-25
+---
+
+# Automatically Create ConfigMgr Device Collections <br> for Lenovo Products
+
+---
 
 This is a PowerShell based solution that will query the ConfigMgr database for Lenovo branded products and create a Device Collection based off the friendly name, i.e. **ThinkPad T14 Gen 2**.  Each device will then be moved to its respective collection.
 
-**PREREQUISITES**
+## PREREQUISITES
 
 In order for the friendly name to be queried, the **Win32_ComputerSystemProduct** WMI class will need to be added/enabled to the ConfigMgr hardware inventory.  This needs to be performed in the Default Client Settings in the **Client Settings** node under the **Administration** workspace.  For a step by step, refer to the this MS [**doc**](https://docs.microsoft.com/en-us/mem/configmgr/core/clients/manage/inventory/extend-hardware-inventory).
 
-**SOLUTION**
+## SOLUTION
 
 Script can be downloaded from my [GitHub](https://github.com/philjorgensen/ConfigMgr/blob/main/Device%20Collections/Create-LenovoDeviceCollections.ps1).
 
@@ -111,9 +117,8 @@ Else {
 }
 ```
 
-**RESULT**
+## RESULT
 
 This was tested in a lab with very few devices so this may or may not take some time to finish depending on the amount of endpoints in your environment.  In the end, you should see a **Lenovo** subfolder containing all of your Lenovo Device Collections.  Hopefully this helps with organization!
 
 ![](../img/2022/configmgr_device_collections/image1.jpg)
-

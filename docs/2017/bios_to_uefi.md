@@ -1,6 +1,6 @@
 ---
-author: Philip Jorgensen
-date: 01/06/2017
+Author: Philip Jorgensen <br>
+Date: 2017-01-06
 ---
 
 # Converting BIOS to UEFI on Think Products with ConfigMgr

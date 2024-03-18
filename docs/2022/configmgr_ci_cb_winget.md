@@ -1,6 +1,6 @@
 ---
-author: Philip Jorgensen
-date: 03/16/2022
+Author: Philip Jorgensen <br>
+Date: 2022-03-16
 ---
 
 # Using Winget to Install Applications as Part of a Configuration Manager Configuration Baseline

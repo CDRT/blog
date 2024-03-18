@@ -1,11 +1,11 @@
 ---
-author: Philip Jorgensen
-date: 2023/2/7
+Author: Philip Jorgensen <br>
+Date: 2023-02-07
 ---
 
 # Adding Model Friendly Name <br> to Intune Device Notes
 
-Updated: 2023/6/14
+Updated: 2023-06
 
 ---
 

@@ -1,12 +1,13 @@
 ---
-author: Joe Parker, Phil Jorgensen <br/>
-date: 2023/3/13
+Author: Joe Parker, Philip Jorgensen <br/>
+Date: 2023-03-13
 ---
 
 # Creating Local Repository <br> Using PowerShell
 
----
 ![PowerShell](../img/2023/scripted_repo_creation/ps_icon.png)
+
+---
 
 There are various scenarios where one might want to quickly generate a local repository of Lenovo updates that can be consumed by Thin Installer or System Update in a scripted manner. This article will describe a PowerShell script that can be leveraged to create a repository for a specified machine type and OS. A scenario where this script might be used will also be described.
 

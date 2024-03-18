@@ -1,11 +1,13 @@
 ---
-author: Philip Jorgensen <br>
-date: 2019-03-11
+Author: Philip Jorgensen <br>
+Date: 2019-03-11
 ---
 
 # Deploying ThinkPad BIOS Updates With Intune
 
 ?> Updated 2024-01
+
+---
 
 This walk-through will cover deploying ThinkPad BIOS updates with Intune. These are provided as standalone executables so adding them as a Win32 app will involve converting them to the .intunewin format using the [Win32 Content Prep Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool).
 

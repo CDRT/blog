@@ -1,10 +1,15 @@
+---
+Author: Philip Jorgensen <br>
+Date: 2019-10-29
+---
+
 # Deploying Commercial Vantage <br> with ConfigMgr   <!-- {docsify-ignore} -->
 
-*Author: Philip Jorgensen*
+![](../img/2019/cv_configmgr_deploy/cv.jpg)
 
-![](../img/2021/cv_configmgr_deploy/cv.jpg)
+?> Updated 2023-02
 
-?> Updated 2/2023
+---
 
 Previously, Lenovo provided two separate apps (Lenovo Settings and Lenovo Companion) that allowed the user to change hardware settings, run diagnostic scans, and check for software and driver updates.  As of December 2017, all of the features in those two apps (discontinued) were merged into a single app [**Commercial Vantage**](https://support.lenovo.com/solutions/hf003321)
 

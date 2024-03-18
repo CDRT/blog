@@ -1,6 +1,6 @@
 ---
-author: Philip Jorgensen <br>
-date: 2023/8/10
+Author: Philip Jorgensen <br>
+Date: 2023-08-10
 ---
 
 # Enabling Logging for Commercial Vantage

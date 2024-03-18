@@ -1,5 +1,9 @@
+---
+Author: Philip Jorgensen <br>
+Date: 2020-10-14
+---
+
 # Autopilot + System Update = Latest drivers
-*Author: Philip Jorgensen*
 
 ---
 
@@ -12,15 +16,16 @@ Pre-req's:
 - Latest version of [System Update](https://support.lenovo.com/downloads/ds012808-lenovo-system-update-for-windows-10-7-32-bit-64-bit-desktop-notebook-workstation)
 - Microsoft's Win32 Content Prep [tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool)
 - Sample PowerShell script that performs the following:
-    - Installs System Update
-    - Sets the AdminCommandLine registry value that will:
-        - Download/install type 3 packages (drivers only). More info on package types can be found in the updated Deployment [Guide](https://docs.lenovocdrt.com/#/su/su_dg).
-        - Writes the installation status of each update to WMI.
+  - Installs System Update
+  - Sets the AdminCommandLine registry value that will:
+    - Download/install type 3 packages (drivers only). More info on package types can be found in the updated Deployment [Guide](https://docs.lenovocdrt.com/#/su/su_dg).
+    - Writes the installation status of each update to WMI.
     - Configures the System Update UI
     - Disables the default scheduled tasks created by System Update.
     - Sets a custom scheduled task for System Update to run. Adjust to what makes sense for your environment.
 
 Save the below as **Invoke-SystemUpdate.ps1** (also on my [GitHub](https://github.com/philjorgensen/Intune/blob/main/Autopilot/Invoke-SystemUpdate.ps1))
+
 ```powershell
 <# 
 DISCLAIMER: 
@@ -130,15 +135,18 @@ $task = New-ScheduledTask -Action $taskAction -Principal $taskUserPrincipal -Tri
 Register-ScheduledTask -TaskName 'Run-TVSU' -InputObject $task -Force
 ```
 
-### Preparing the Win32 App
+## Preparing the Win32 App
+
 Once all pre-requisites are downloaded to a source location, run the Content Prep tool to package the content as an **.intunewin** package. A sample command would be:
+
 ```cmd
 IntuneWinAppUtil.exe -c "C:\SU\" -s "Configure-TVSUandScheduledTask.ps1" -o "C:\SU\output"
 ```
 
 ![](../img/2020/ap_su/image1.jpg)
 
-### Add Win32 App
+## Add Win32 App
+
 Add a new Windows app in the MEM admin center, and choose the **Windows app (Win32)** app type.  Select the .intunewin app created earlier and click ok to upload.
 
 Fill out the necessary information for each section.
@@ -146,14 +154,17 @@ Fill out the necessary information for each section.
 ![](../img/2020/ap_su/image2.jpg)
 
 For the Install command enter the following:
+
 ```cmd
 powershell.exe -ExecutionPolicy Bypass -File .\Configure-TVSUandScheduledTask.ps1
 ```
-Since there's no uninstall, just enter cmd.exe /c 
+
+Since there's no uninstall, just enter cmd.exe /c
 
 ![](../img/2020/ap_su/image3.jpg)
 
 Additional Requirement type: **Registry**
+
 - Key path: **HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS**
 - Value name: **SystemManufacturer**
 - Registry key requirement: **String comparison**
@@ -181,7 +192,8 @@ If you already have an Enrollment Status Page profile configured, add this app t
 
 ![](../img/2020/ap_su/image7.jpg)
 
-### Viewing the Results
+## Viewing the Results
+
 A look through the IntuneManagementExtension.log, you'll see the update_history.txt file was not detected
 
 ![](../img/2020/ap_su/image8.jpg)

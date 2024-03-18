@@ -1,7 +1,13 @@
-### Reporting BIOS Password States on <br> Think Products with ConfigMgr
-*Author: Philip Jorgensen*
+---
+Author: Philip Jorgensen
+Date: 2018-10-11
+---
 
-?>Updated: September 2019
+# Reporting BIOS Password States on <br> Think Products with ConfigMgr
+
+?> Updated: 2019-09
+
+---
 
 There may be a need to run a report on your Think products to check which BIOS settings are enabled or disabled, or if there is even a BIOS supervisor password set.
 

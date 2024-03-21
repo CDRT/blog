@@ -21,6 +21,8 @@ To leverage this capability, a new set of WMI methods were introduced as part of
 
 To make the process easier, we have created a LnvBiosCerts PowerShell module and the Lenovo BIOS Cert Tool (LnvBiosCertsInterface.ps1) which provides a GUI interface for working with these functions. The current version of this package can be downloaded from [here (LnvBiosCertTool_1.0.2.zip)](https://download.lenovo.com/cdrt/tools/LnvBiosCertTool_1.0.2.zip).
 
+A reference guide to the PowerShell module is available at [https://docs.lenovocdrt.com/#/lnvbioscerts/lnvbioscerts_top](https://docs.lenovocdrt.com/#/lnvbioscerts/lnvbioscerts_top)
+
 ## Getting Started
 
 The first step in trying this out will be to generate a compatible code signing certificate. In this article we will use OpenSSL to create the certificate. In this guide we will be using OpenSSL Light for this. This can be installed on an administrator’s system using Winget:

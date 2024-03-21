@@ -109,12 +109,12 @@ Reboot the system so that the changes can be finalized.  You may notice a messag
 
 On the administrator device which has the private key, generate a signed command.  This can be done using the Lenovo BIOS Certificate Tool user interface by doing the following:
 
-- Click Generate Signed Command in the left navigation menu
-- Select the method ‘SetBiosSetting’
-- Specify the path to the private key
-- Either enter or select the setting name and value (use the Load WMI Settings button if the current system has the setting needed, otherwise you can type the setting name and value in manually)
-- Click Generate Command
-- Copy the text generated to a text file you can copy to or access from the test device
+1. Click Generate Signed Command in the left navigation menu
+1. Select the method ‘SetBiosSetting’
+1. Specify the path to the private key
+1. Either enter or select the setting name and value (use the Load WMI Settings button if the current system has the setting needed, otherwise you can type the setting name and value in manually)
+1. Click Generate Command
+1. Copy the text generated to a text file you can copy to or access from the test device
 
 The signed command can also be generated from the PowerShell terminal by running the following command in the folder where the private key exists:
 
@@ -128,6 +128,8 @@ This will generate a text file for you containing the signed command.
 ![Generate signed command](..\img\2023\cert_based_bios_authentication\generatesignedcommand.png)
 -->
 
+?> You can generate multiple signed commands to change multiple BIOS Settings. You must also create a signed command that uses the SaveBiosSettings method.  This must be the final command submitted after changing one or more settings to ensure the settings are saved prior to restarting the machine. 
+
 ## Apply the Signed Command
 
 On the test machine where the certificate has been applied and the LnvBiosCerts module has been installed, run the following command to apply the signed command which can be copied from the text file created in the previous step:
@@ -138,19 +140,19 @@ Submit-LnvBiosChange -Command “(text from text file)”
 
 ![Apply signed command](..\img\2023\cert_based_bios_authentication\applycommand.png)
 
-Restart the system for the setting change to take effect.
+Repeat this step for all the signed commands and make sure the last one applied is the one that references the SaveBiosSettings method. Restart the system for the settings changes to take effect.
 
 ## Going Further
 
-The Lenovo BIOS Cert Tool provides an easy to use graphical interface to work with the There are several other functions covered by the Lenovo BIOS Cert Tool interface.
+The Lenovo BIOS Cert Tool provides an easy to use graphical interface to work with the certificate-based BIOS configuration methods. There are several additional functions provided by the Lenovo BIOS Cert Tool that are described below.
 
 ### Working with Think BIOS Config Tool
 
-The Think BIOS Config Tool provides the ability to list all the available settings and values on a system. The settings can be configured as desired and an INI file generated with changed settings. The Lenovo BIOS Certificate Tool can convert one of these INI files into a text file containing the signed WMI commands to apply the settings.
+The Think BIOS Config Tool is a separate tool that provides the ability to list all the available settings and values on a system. The settings can be configured as desired and an INI file can be generated with changed settings. The Lenovo BIOS Certificate Tool can convert one of these INI files into a text file containing the signed WMI commands to apply the settings.
 
 ![Convert Config File Window](..\img\2023\cert_based_bios_authentication\convertconfigfilewindow.png)
 
-The generated file can be used on the ***Apply Signed Commands*** page of the Lenovo BIOS Certificate Tool.
+The generated file can be used on the ***Apply Signed Commands*** page of the Lenovo BIOS Certificate Tool or can easily be incorporated into your own PowerShell script.
 
 ![Apply Signed Commands Window](..\img\2023\cert_based_bios_authentication\applysignedcommandwindow.png)
 

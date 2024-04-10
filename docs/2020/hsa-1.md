@@ -28,8 +28,8 @@ We have created a script to read JSON manifest files provided in the HSA packs. 
 ##                                                                            ##
 ##      Title: Install-HSA.ps1                                                ##
 ##  Publisher: Lenovo                                                         ##
-##    Version: 1.02                                                           ##
-##       Date: 2020-06-03                                                     ##
+##    Version: 1.03                                                           ##
+##       Date: 2024-04-10                                                     ##
 ##                                                                            ##
 ##                              Legal Disclaimer                              ##
 ##                                                                            ##
@@ -68,7 +68,7 @@ We have created a script to read JSON manifest files provided in the HSA packs. 
 
     Used to list the names of all Hardware Support Applications in the 
     subdirectories.  Returns the list of the Hardware Support 
-    Applications names to the screen.
+	Applications names to the screen.
 
     -LIST
 
@@ -123,10 +123,10 @@ We have created a script to read JSON manifest files provided in the HSA packs. 
 .PARAMETER DEBUGINFORMATION
 
     Use to turn on Transcript logging and full logging of DISM Commands.  The 
-    transcript file can be found at C:\Windows\Logs.  There will be a separate 
+    transcript file can be found at C:\Windows\Logs.  There will be a separate  
     log file from each DISM command generated at C:\Windows\Logs\DISM.
 
-    -DEBUGINFORMATION
+	-DEBUGINFORMATION				 
 
 .EXAMPLE
 
@@ -162,6 +162,15 @@ We have created a script to read JSON manifest files provided in the HSA packs. 
                     subdirectories.
     Return Code 4 : When using the -FILE parameter, the file name was not 
                     found in the directory where the script resides.
+
+#>
+
+<#
+Version history
+
+- 1.03: Remove incompatible characters from the log file name.
+
+- 1.02: Initial Release
 
 #>
 
@@ -216,7 +225,8 @@ Function Install-HSA
             {
                 New-Item -Path "$($LogPath)\DISM" -ItemType Directory
             }
-            $DISMLog = " /LogLevel:4 /LogPath:`"$LogPath\DISM\$($HSAPackage.hsa).log`""
+            $HsaLogName = $($HSAPackage.hsa) -replace '\<|\>|:|"|/|\\|\||\?|\*', '_'
+            $DISMLog = " /LogLevel:4 /LogPath:`"$LogPath\DISM\$HsaLogName.log`""
         }
         $DISMArgs = "/Add-ProvisionedAppxPackage /PackagePath:`"$($HSAPackage.JSONPath)\$($HSAPackage.appx)`" /LicensePath:`"$($HSAPackage.JSONPath)\$($HSAPackage.license)`"$($OutDep) /Region:`"All`"$DISMLog"
         Write-Host "Offline DISM - $($HSAPackage.hsa)"
@@ -226,7 +236,7 @@ Function Install-HSA
         }
         $DISMArgs = "/Image:$($Drive)\ $($DISMArgs)"
         Write-Host "$env:windir\system32\Dism.exe $DISMArgs"
-        Start-Process -FilePath "$env:windir\system32\Dism.exe" -ArgumentList $DISMArgs -Wait
+        Start-Process -FilePath "$env:windir\system32\Dism.exe" -ArgumentList $DISMArgs -Wait -WindowStyle Hidden
     }
 }
 ##################

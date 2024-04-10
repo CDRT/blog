@@ -24,6 +24,7 @@ The HSA Pack will be a self-extracting executable file like our SCCM Driver Pack
 We have created a script to read JSON manifest files provided in the HSA packs.  The script can be leveraged in MEM/SCCM or MDT.  Below is the PowerShell script you can use for installation.
 
 ```Powershell
+
 ################################################################################
 ##                                                                            ##
 ##      Title: Install-HSA.ps1                                                ##
@@ -390,6 +391,7 @@ If($DebugInformation)
     #####################
     Stop-Transcript
 }
+
 ```
 
 - **List Functionality** – Used to list the names of all Hardware Support Applications in the subdirectories.  Returns the list of all Hardware Support Applications names to the screen.

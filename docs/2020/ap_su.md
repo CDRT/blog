@@ -5,6 +5,8 @@ Date: 2020-10-14
 
 # Autopilot + System Update = Latest drivers
 
+?> Updated: 2024-04
+
 ---
 
 This post walks you through updating your Think product's drivers during [Windows Autopilot](https://docs.microsoft.com/en-us/mem/autopilot/windows-autopilot) using Lenovo System Update.
@@ -13,18 +15,19 @@ Ideally, you'll want the most current drivers installed on the device prior to t
 
 Pre-req's:
 
-- Latest version of [System Update](https://support.lenovo.com/downloads/ds012808-lenovo-system-update-for-windows-10-7-32-bit-64-bit-desktop-notebook-workstation)
+- ~~Latest version of [System Update](https://support.lenovo.com/downloads/ds012808-lenovo-system-update-for-windows-10-7-32-bit-64-bit-desktop-notebook-workstation)~~ Script will install System Update via Microsoft's [Winget PowerShell Module](https://www.powershellgallery.com/packages/Microsoft.WinGet.Client/)
 - Microsoft's Win32 Content Prep [tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool)
 - Sample PowerShell script that performs the following:
-  - Installs System Update
+  - Installs PowerShell 7
+  - Installs Microsoft.Winget.Client PowerShell module, which allows us to install System Update via Winget
   - Sets the AdminCommandLine registry value that will:
     - Download/install type 3 packages (drivers only). More info on package types can be found in the updated Deployment [Guide](https://docs.lenovocdrt.com/#/su/su_dg).
     - Writes the installation status of each update to WMI.
-    - Configures the System Update UI
+    - Configures the System Update GUI
     - Disables the default scheduled tasks created by System Update.
-    - Sets a custom scheduled task for System Update to run. Adjust to what makes sense for your environment.
+    - Sets a custom scheduled task for System Update to run.
 
-Save the below as **Invoke-SystemUpdate.ps1** (also on my [GitHub](https://github.com/philjorgensen/Intune/blob/main/Autopilot/Invoke-SystemUpdate.ps1))
+Save the below as **Invoke-SystemUpdate.ps1**: https://github.com/philjorgensen/Intune/blob/main/Autopilot/System%20Update/Invoke-SystemUpdate.ps1
 
 ```powershell
 <# 
@@ -61,38 +64,91 @@ has been advised of the possibility of such damages.
 
 .DESCRIPTION
     Script will install Lenovo System Update and set the necessary registry subkeys and values that downloads/installs 
-    reboot type 3 packages on the system.  Certain UI settings are configured for an optimal end user experience.
-    The default Scheduled Task created by System Update will be disabled.  A custom Scheduled Task for System Update will be created.
-
+    reboot type 3 packages on the system. Certain UI settings are configured for an optimal end user experience.
+    The default scheduled task created by System Update will be disabled. A custom scheduled task for System Update will be created.
+    
 .NOTES
     FileName: Invoke-SystemUpdate.ps1
     Author: Philip Jorgensen
-    
-    Update the $pkg variable with the version you plan on installing
+
+    Created:    2023-10-10
+    Change:     2024-04-15
+                    Switch to winget installation method using PowerShell 7 and the Microsoft.Winget.Client module
+                    Add logging
+                    Add soft reboot code to finish driver installation for drivers that may require it
 #>
 
-##### Install System Update
-$pkg = "system_update_5.07.0110"
-$switches = "/verysilent /norestart"
-Start-Process ".\$pkg" -ArgumentList $switches -Wait
+$LogPath = Join-Path -Path (Join-Path -Path $env:ProgramData -ChildPath "Lenovo") -ChildPath "SystemUpdate"
+Start-Transcript -Path $LogPath\Autopilot-SystemUpdate.log
 
-##### Set SU AdminCommandLine
-$RegKey = "HKLM:\SOFTWARE\Policies\Lenovo\System Update\UserSettings\General"
-$RegName = "AdminCommandLine"
-$RegValue = "/CM -search A -action INSTALL -includerebootpackages 3 -noicon -noreboot -exporttowmi"
+<# 
+    Credit to Andrew Taylor
+    https://github.com/andrew-s-taylor/public/blob/main/Powershell%20Scripts/Intune/deploy-winget-during-esp.ps1
+#>
+#GitHub API endpoint for PowerShell releases
+$githubApiUrl = 'https://api.github.com/repos/PowerShell/PowerShell/releases/latest'
 
-# Create Subkeys if they don't exist
-if (!(Test-Path $RegKey)) {
-    New-Item -Path $RegKey -Force | Out-Null
-    New-ItemProperty -Path $RegKey -Name $RegName -Value $RegValue | Out-Null
+#Fetch the latest release details
+$release = Invoke-RestMethod -Uri $githubApiUrl
+
+#Find asset with .msi in the name
+$asset = $release.assets | Where-Object { $_.name -like "*msi*" -and $_.name -like "*x64*" }
+
+#Get the download URL and filename of the asset (assuming it's a MSI file)
+$downloadUrl = $asset.browser_download_url
+$filename = $asset.name
+
+#Download the latest release
+Invoke-WebRequest -Uri $downloadUrl -OutFile $filename
+
+#Install PowerShell 7
+Start-Process msiexec.exe -Wait -ArgumentList "/I $filename /qn"
+
+#Start a new PowerShell 7 session
+$pwshExecutable = "C:\Program Files\PowerShell\7\pwsh.exe"
+
+#Run a script block in PowerShell 7
+& $pwshExecutable -Command {
+    $provider = Get-PackageProvider -Name NuGet -ErrorAction Ignore
+    if (-not($provider))
+    {
+        Write-Host "Installing provider NuGet"
+        Find-PackageProvider -Name NuGet -ForceBootstrap -IncludeDependencies
+    }
 }
-else {
-    New-ItemProperty -Path $RegKey -Name $RegName -Value $RegValue -Force | Out-Null
+& $pwshExecutable -Command {
+    Install-Module -Name Microsoft.Winget.Client -Force -AllowClobber
+}
+& $pwshExecutable -Command {
+    Import-Module -Name Microsoft.Winget.Client
+}
+& $pwshExecutable -Command {
+    Repair-WinGetPackageManager
+}
+& $pwshExecutable -Command {
+    Install-WinGetPackage -Id Lenovo.SystemUpdate
 }
 
-##### Configure SU interface
-$ui = "HKLM:\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\General"
-$values = @{
+#Set SU AdminCommandLine
+$Key = "HKLM:\SOFTWARE\Policies\Lenovo\System Update\UserSettings\General"
+$Name = "AdminCommandLine"
+$Value = "/CM -search A -action INSTALL -includerebootpackages 3 -noicon -noreboot -exporttowmi"
+
+#Create subkeys if they don't exist
+if (-not(Test-Path -Path $Key))
+{
+    New-Item -Path $Key -Force | Out-Null
+    New-ItemProperty -Path $Key -Name $Name -Value $Value | Out-Null
+}
+else
+{
+    New-ItemProperty -Path $Key -Name $Name -Value $Value -Force | Out-Null
+}
+Write-Host "AdminCommandLine value set"
+
+#Configure System Update interface
+$Key2 = "HKLM:\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\General"
+$Values = @{
 
     "AskBeforeClosing"     = "NO"
 
@@ -101,41 +157,76 @@ $values = @{
     "MetricsEnabled"       = "NO"
                              
     "DebugEnable"          = "YES"
-
 }
 
-if (Test-Path $ui) {
-    foreach ($item in $values.GetEnumerator() ) {
-        New-ItemProperty -Path $ui -Name $item.Key -Value $item.Value -Force
+if (Test-Path -Path $Key2)
+{
+    foreach ($Value in $Values.GetEnumerator() )
+    {
+        New-ItemProperty -Path $Key2 -Name $Value.Key -Value $Value.Value -Force
     }
 }
+Write-Host "System Update GUI configured"
 
 <# 
 Run SU and wait until the Tvsukernel process finishes.
-Once the Tvsukernel ends, Autopilot flow will continue.
+Once the Tvsukernel process ends, Autopilot flow will continue.
 #>
-$su = Join-Path -Path ${env:ProgramFiles(x86)} -ChildPath "Lenovo\System Update\tvsu.exe"
-& $su /CM | Out-Null
+$systemUpdate = "$(${env:ProgramFiles(x86)})\Lenovo\System Update\tvsu.exe"
+& $systemUpdate /CM
+
+Write-Host "Execute System Update and search for drivers"
+
+#Wait for tvsukernel to initialize
+Start-Sleep -Seconds 15
 Wait-Process -Name Tvsukernel
+Write-Host "Drivers installed"
 
-# Disable the default System Update scheduled tasks
+#Disable the default System Update scheduled tasks
 Get-ScheduledTask -TaskPath "\TVT\" | Disable-ScheduledTask
+Write-Host "Default scheduled tasks disabled"
 
-##### Disable Scheduler Ability.  
-# This will prevent System Update from creating the default scheduled tasks when updating to future releases.
-$sa = "HKLM:\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\Scheduler"
-Set-ItemProperty -Path $sa -Name "SchedulerAbility" -Value "NO"
+<# 
+Disable Scheduler Ability.  
+This will prevent System Update from creating the default scheduled tasks when updating to future releases.
+#> 
+$schdAbility = "HKLM:\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\Scheduler"
+Set-ItemProperty -Path $schdAbility -Name "SchedulerAbility" -Value "NO"
 
-##### Create a custom scheduled task for System Update
-$taskAction = New-ScheduledTaskAction -Execute $su -Argument '/CM'
-$taskTrigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At 9am
+#Create a custom scheduled task for System Update
+$taskActionParams = @{
+    Execute  = $systemUpdate
+    Argument = '/CM'
+}
+$taskAction = New-ScheduledTaskAction @taskActionParams
+
+#Adjust to your requirements
+$taskTriggerParams = @{
+    Weekly     = $true
+    DaysOfWeek = 'Monday'
+    At         = "9am"
+}
+$taskTrigger = New-ScheduledTaskTrigger @taskTriggerParams
 $taskUserPrincipal = New-ScheduledTaskPrincipal -UserId 'SYSTEM'
 $taskSettings = New-ScheduledTaskSettingsSet -Compatibility Win8
-$task = New-ScheduledTask -Action $taskAction -Principal $taskUserPrincipal -Trigger $taskTrigger -Settings $taskSettings
-Register-ScheduledTask -TaskName 'Run-TVSU' -InputObject $task -Force
+
+$newTaskParams = @{
+    TaskPath    = "\TVT\"
+    TaskName    = "Custom-RunTVSU"
+    Description = "System Update searches and installs new drivers only"
+    Action      = $taskAction
+    Principal   = $taskUserPrincipal
+    Trigger     = $taskTrigger
+    Settings    = $taskSettings
+}
+Register-ScheduledTask @newTaskParams -Force | Out-Null
+Write-Host "Custom scheduled task created"
+Write-Host "Exiting with a 3010 return code for a soft reboot to complete driver installation."
+Stop-Transcript
+Exit 3010
 ```
 
-## Preparing the Win32 App
+## Preparing the Win32 App (Old method)
 
 Once all pre-requisites are downloaded to a source location, run the Content Prep tool to package the content as an **.intunewin** package. A sample command would be:
 
@@ -145,9 +236,19 @@ IntuneWinAppUtil.exe -c "C:\SU\" -s "Configure-TVSUandScheduledTask.ps1" -o "C:\
 
 ![](../img/2020/ap_su/image1.jpg)
 
+## Preparing the Win32 App (New method)
+
+Download the **Invoke-SystemUpdate.intunewin** app from GitHub *or*
+
+Using the Win32 Content Prep tool, create your own .intunewin file. Example
+
+```cmd
+intunewinapputil.exe -c .\SU -s Invoke-SystemUpdate.ps1 -o .\ -q
+```
+
 ## Add Win32 App
 
-Add a new Windows app in the MEM admin center, and choose the **Windows app (Win32)** app type.  Select the .intunewin app created earlier and click ok to upload.
+Add a new Win32 app in [Intune](https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/~/windowsApps). Select the .intunewin app created earlier and click ok to upload.
 
 Fill out the necessary information for each section.
 
@@ -156,10 +257,14 @@ Fill out the necessary information for each section.
 For the Install command enter the following:
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File .\Configure-TVSUandScheduledTask.ps1
+powershell.exe -ExecutionPolicy Bypass -File .\Invoke-SystemUpdate.ps1
 ```
 
-Since there's no uninstall, just enter cmd.exe /c
+Uninstall command to uninstall System Update:
+
+```cmd
+"%ProgramFiles(x86)%\Lenovo\System Update\unins000.exe" /SILENT
+```
 
 ![](../img/2020/ap_su/image3.jpg)
 

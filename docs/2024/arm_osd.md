@@ -3,7 +3,7 @@ Author: Philip Jorgensen <br>
 Date: 2024-04-24
 ---
 
-# ARM 64 OSD
+# Arm-based Operating System Deployment
 
 ![](..\img\2024\arm_osd\image.jpg)
 

@@ -9,7 +9,7 @@ Date: 2024-04-24
 
 ---
 
-Operating System Deployment [support for Windows 11 ARM 64](https://learn.microsoft.com/mem/configmgr/core/plan-design/changes/whats-new-in-version-2403#os-deployment) devices is now supported in the 2403 release of Configuration Manager. This guide will demonstrate how to deploy Windows 11 to the Qualcomm equipped [ThinkPad X13s](https://www.lenovo.com/p/laptops/thinkpad/thinkpadx/thinkpad--x13s-(13-inch-snapdragon)/len101t0019).
+Operating System Deployment [support for Windows 11 ARM 64](https://learn.microsoft.com/mem/configmgr/core/plan-design/changes/whats-new-in-version-2403#os-deployment) devices is now supported in the 2403 release of Configuration Manager. This guide will demonstrate how to deploy Windows 11 to the Qualcomm equipped [ThinkPad X13s](https://techtoday.lenovo.com/us/en/thinkpad-x13s).
 
 ## ADK
 

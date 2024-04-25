@@ -69,7 +69,7 @@ I tested both ways for driver installation. A [Driver Package](https://learn.mic
 
 ## Windows 11 ARM Media
 
-Download the Windows 11 ARM ISO and add the install.wim under **Software Library > Operating System Images**. At the time of this writing, we are using a preview build of 24H2.
+Download the Windows 11 ARM ISO and add the install.wim under **Software Library > Operating System Images**.
 
 ![](..\img\2024\arm_osd\image9.jpg)
 

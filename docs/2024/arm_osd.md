@@ -3,13 +3,13 @@ Author: Philip Jorgensen <br>
 Date: 2024-04-24
 ---
 
-# Arm-based Operating System Deployment
+# ARM-based Operating System Deployment
 
 ![](..\img\2024\arm_osd\image.jpg)
 
 ---
 
-Operating System Deployment [support for Windows 11 ARM 64](https://learn.microsoft.com/mem/configmgr/core/plan-design/changes/whats-new-in-version-2403#os-deployment) devices is now supported in the 2403 release of Configuration Manager. This guide will demonstrate how to deploy Windows 11 to the Qualcomm equipped [ThinkPad X13s](https://techtoday.lenovo.com/us/en/thinkpad-x13s).
+Operating System Deployment [support for Windows 11 ARM 64](https://learn.microsoft.com/mem/configmgr/core/plan-design/changes/whats-new-in-version-2403#os-deployment) devices is now supported in the 2403 release of Configuration Manager. This guide will demonstrate how to deploy Windows 11 to the Qualcomm-equipped [ThinkPad X13s](https://techtoday.lenovo.com/us/en/thinkpad-x13s).
 
 ## ADK
 
@@ -69,7 +69,7 @@ I tested both ways for driver installation. A [Driver Package](https://learn.mic
 
 ## Windows 11 ARM Media
 
-Download the Windows 11 ARM ISO and add the install.wim under **Software Library > Operating System Images**. This is 24H2 Enterprise
+Download the Windows 11 ARM ISO and add the install.wim under **Software Library > Operating System Images**. At the time of this writing, we are using a preview build of 24H2.
 
 ![](..\img\2024\arm_osd\image9.jpg)
 

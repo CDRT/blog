@@ -19,12 +19,14 @@
 			<link></link>
 			</item>
 		-->
+		<!--
 		<item>
 			<title>ARM-based Operating System Deployment</title>
 			<description>Deploying Windows to ARM-based devices using Configuration Manager</description>
 			<pubDate>Thur, 25 April 2024 10:00:00 EST</pubDate>
 			<link>https://blog.lenovocdrt.com/#/2024/arm_osd</link>
 			</item>
+		-->
 		<item>
 			<title>Introducing: Lenovo Device Management Module</title>
 			<description>The Lenovo Device Management Module (PowerShell) simplifies automation of tasks for Lenovo PCs.</description>

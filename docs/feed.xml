@@ -20,14 +20,19 @@
 			</item>
 		-->
 		<item>
+			<title>Arm-based Operating System Deployment</title>
+			<description>Deploying Windows to Arm-based devices using Configuration Manager</description>
+			<pubDate>Thur, 25 April 2024 10:00:00 EST</pubDate>
+			<link>https://blog.lenovocdrt.com/#/2024/arm_osd</link>
+			</item>
+		<item>
 			<title>Introducing: Lenovo Device Management Module</title>
 			<description>The Lenovo Device Management Module (PowerShell) simplifies automation of tasks for Lenovo PCs.</description>
 			<pubDate>Mon, 15 January 2024 10:30:00 EST</pubDate>
 			<link>https://blog.lenovocdrt.com/#/2024/intro_ldmm</link>
 			</item>
 		<item>
-			<title>Configuration Manager - Driver Import Error:
-“Some packages cannot be updated”</title>
+			<title>Configuration Manager - Driver Import Error: "Some packages cannot be updated"</title>
 			<description>How to address this error when importing driver packs.</description>
 			<pubDate>Mon, 17 January 2024 10:30:00 EST</pubDate>
 			<link>https://blog.lenovocdrt.com/#/2024/cm_drivers_import</link>

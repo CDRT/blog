@@ -3,6 +3,7 @@
 [![RSS Feed](https://blog.lenovocdrt.com/img/feed-icon.png)RSS Feed](https://blog.lenovocdrt.com/feed.xml)
 
 - **2024**
+-- [ARM-based Operating <br> System Deployment](2024/arm_osd.md)
 -- [Introduction to Lenovo <br>Device Management Module](2024/intro_ldmm.md)
 -- [Configuration Manager<br> - Driver Import Error: <br> "Some packages cannot be updated"](2024/cm_drivers_import.md)
 

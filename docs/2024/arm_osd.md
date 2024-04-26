@@ -29,6 +29,8 @@ During testing, the Distribution Point in my lab was configured for SCCM's PXE r
 
 ![](..\img\2024\arm_osd\image3.jpg)
 
+?> SCCM PXE responder service **does** work on the 2403 update so your Distribution Point can be configured either way.
+
 ## Drivers
 
 Next will be adding the right drivers to the boot image. When I initially PXE booted the X13s using a USB-C to Ethernet adapter, I successfully got into WinPE, but there was no touchpad/trackpoint or keyboard support so that left me dead in the water. At the time of this writing, the latest [SCCM pack](https://pcsupport.lenovo.com/products/laptops-and-netbooks/thinkpad-x-series-laptops/thinkpad-x13s-type-21bx-21by/downloads/ds556992-sccm-package-for-windows-11-arm-version-21h2-thinkpad-x13s?category=Enterprise%20Management) for X13s was released on April 5. You'll want to download the Windows 11 22H2 pack and extract the contents to your driver share.
